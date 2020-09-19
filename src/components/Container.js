@@ -2,7 +2,6 @@ import React from 'react';
 import 'aframe';
 import 'aframe-particle-system-component';
 import {Entity, Scene} from 'aframe-react';
-import Text from './Text'
  
 class Container extends React.Component {
   render () {
@@ -15,7 +14,7 @@ class Container extends React.Component {
         <Entity particle-system={{preset: 'snow', color: "yellow"}}/>
         <Entity particle-system={{preset: 'snow', color: "blue"}}/>
         <Entity particle-system={{preset: 'snow', color: "orange"}}/>
-        <Text color="yellow"/>
+        <Entity text={{value: 'PSYCHE WebXR', color:"yellow"}} position=".35 2 -1.1" />
         <Entity primitive='a-sky' src={require("../assets/Space.jpg")} rotation="0 -130 0"/>
       </Scene>
     );
