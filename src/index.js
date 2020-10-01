@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Container from './components/Container'
+import SceneSelector from './components/SceneSelector';
 
 ReactDOM.render(
-  <Container />,
+  <SceneSelector />,
   document.getElementById('root')
 );
