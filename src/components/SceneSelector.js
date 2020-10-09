@@ -4,10 +4,10 @@ import Satellite from './Satellite/Satellite'
 import Asteriod from './Asteroid/Asteriod'
 
 
-class SceneSelector extends React.Component{
+class SceneSelector extends React.Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = { mode: MENU_MODE }
     }
 
