@@ -1,0 +1,30 @@
+button {
+    background: rgba(48, 33, 68, 1);
+    border: none;
+    color: white;
+    padding: 2vh 2vw 2vh 2vw;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 2vw;
+    border-width: .1em;
+    border-style: inset;
+    border-color: rgba(165, 63, 91, 1);
+    border-radius: 1vw;
+    font-family: Helvetica;
+    font-weight: bold;
+  }
+
+h1 {
+    color: white;
+    font-size: 4vw;
+    text-shadow: .1vw .1vw rgba(48, 33, 68, 1);
+    font-family: Helvetica;
+}
+
+.photo {
+  height: 8vw;
+  width: 8vw;
+  max-width: 100px;
+  max-height: 100px;
+}
