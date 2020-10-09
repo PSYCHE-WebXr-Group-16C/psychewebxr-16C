@@ -10,12 +10,14 @@ class Asteroid extends React.Component {
   constructor(){
     super();
     this.state={
-      asteroidX: -1.2,
-      asteroidY: 0.0,
-      asteroidZ: -4.0,
-
+      asteroidX: -1.2, // Asteroid X Position
+      asteroidY: 0.0, // Asteroid Y Position
+      asteroidZ: -4.0, // Asteroid Z Position
     }
   }
+
+  componentDidMount(){} // NOTE Runs this method directly after the component first renders
+  componentDidUpdate(){} // NOTE Runs this method every time we call setState({}) (i.e. Re-render component)
 
   render () {
     return (

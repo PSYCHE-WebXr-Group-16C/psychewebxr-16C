@@ -10,9 +10,9 @@ class Satellite extends React.Component {
   constructor(){
     super();
     this.state={
-      satelliteX: 0.189,
-      satelliteY: .760,
-      satelliteZ: -1.405,
+      satelliteX: 0.189, // Satellite X Position
+      satelliteY: .760, // Satellite Y Position
+      satelliteZ: -1.405, // Satellite Z Position
     }
   }
 

@@ -6,10 +6,10 @@ import '../constants/Menu.css'
 import Badge from '../assets/images/Psyche-Badge-Mono.png'
 
 
-class SceneSelector extends React.Component{
+class SceneSelector extends React.Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = { mode: MENU_MODE }
     }
 
