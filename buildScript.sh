@@ -1,11 +1,14 @@
+npm install
+echo 'Installed modules.'
+
 npm run build
-echo 'Build Finsihed.'
+echo 'Build finsihed.'
 
 (cd /mnt/dev1/capstone/docker && sudo docker-compose down)
 echo 'Bringing down apache server.'
 
 sudo rm -rf /mnt/dev1/capstone/docker/build_old
-echo 'removed build_old/.'
+echo 'Removed build_old/.'
 
 sudo cp -r /mnt/dev1/capstone/docker/build /mnt/dev1/capstone/docker/build_old
 echo 'Copied previous build to build_old'
