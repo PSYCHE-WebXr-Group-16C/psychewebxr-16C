@@ -4,13 +4,13 @@ import 'aframe-particle-system-component';
 import {Entity, Scene} from 'aframe-react';
 
 const BACKGROUND = require("../../assets/images/Space.jpg")
-const ASTEROID = require('../../assets/models/PsycheAsteroid.glb');
+const ASTEROID = require('../../assets/models/TexturedAsteroid.glb');
 
 class Asteroid extends React.Component {
   constructor(){
     super();
     this.state={
-      asteroidX: -1.2, // Asteroid X Position
+      asteroidX: -1.505, // Asteroid X Position
       asteroidY: 0.0, // Asteroid Y Position
       asteroidZ: -4.0, // Asteroid Z Position
     }
@@ -22,7 +22,7 @@ class Asteroid extends React.Component {
   render () {
     return (
       <Scene>
-        <a-entity gltf-model={ASTEROID} scale="1000 1000 1000" rotation="0 -8 0" position={`${this.state.asteroidX} ${this.state.asteroidY} ${this.state.asteroidZ}`} ></a-entity>
+        <a-entity gltf-model={ASTEROID} scale="1 1 1" rotation="0 -8 0" position={`${this.state.asteroidX} ${this.state.asteroidY} ${this.state.asteroidZ}`} ></a-entity>
         <Entity primitive='a-sky' src={BACKGROUND} rotation="0 -100 0"/>
         <Entity light={{type: 'point'}} position="0 10 0" />
       </Scene>
