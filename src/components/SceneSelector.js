@@ -10,6 +10,7 @@ class SceneSelector extends React.Component {
 
     constructor(props) {
         super(props);
+        this.handler = this.handler.bind(this);
         this.state = { mode: MENU_MODE }
     }
 
@@ -35,11 +36,11 @@ class SceneSelector extends React.Component {
                     <h1>Select Your WebXR Experience!</h1>
                 </div>
                 <div style = {{padding: '2vh', display: 'flex', justifyContent: 'center'}}>
-                    <button onClick={ () => { this.setState({mode: ASTEROID_MODE}) } }>
+                    <button className="MenuButton" onClick={ () => { this.setState({mode: ASTEROID_MODE}) } }>
                         Asteroid Experience</button>
                 </div>
                 <div style = {{padding: '2vh', display: 'flex', justifyContent: 'center'}}>
-                    <button onClick={ () => { this.setState({mode: SATELLITE_MODE}) } }>
+                    <button className="MenuButton" onClick={ () => { this.setState({mode: SATELLITE_MODE}) } }>
                         Satellite Experience</button>
                 </div>
                 <div style = {{position: 'absolute', right: '5px', bottom: '5px'}}>
@@ -49,12 +50,16 @@ class SceneSelector extends React.Component {
         );
     }
 
+    handler() {
+        this.setState({ mode: MENU_MODE });
+    }
+
     asteroidMode() {
-        return <Asteriod />
+        return <Asteriod action = {this.handler}/>
     }
 
     satelliteMode() {
-        return <Satellite />
+        return <Satellite action = {this.handler}/>
     }
 
     render () {

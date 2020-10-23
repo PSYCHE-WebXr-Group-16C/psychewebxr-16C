@@ -18,11 +18,16 @@ class Satellite extends React.Component {
 
   render () {
     return (
-      <Scene>
-        <a-entity gltf-model={SATELLITE} scale="10 10 10" rotation="0 270 0" position={`${this.state.satelliteX} ${this.state.satelliteY} ${this.state.satelliteZ}`}></a-entity>
-        <Entity primitive='a-sky' src={BACKGROUND} rotation="25 -100 0"/>
-        <Entity light={{type: 'point'}} position="0 5 0" />
-      </Scene>
+      <div className = "Experience">
+        <Scene embedded vr-mode-ui="enabled: false">
+          <Entity gltf-model={SATELLITE} scale="10 10 10" rotation="0 270 0"
+          position={`${this.state.satelliteX} ${this.state.satelliteY} ${this.state.satelliteZ}`}></Entity>
+          <Entity primitive='a-sky' src={BACKGROUND} rotation="25 -100 0"/>
+          <Entity light={{type: 'point'}} position="0 5 0" />
+        </Scene>
+        <button onClick={this.props.action} className= "BackButton"
+        style = {{position: "absolute"}}></button>
+      </div>
     );
   }
 }
