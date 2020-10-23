@@ -1,7 +1,6 @@
 import React from 'react';
 import 'aframe';
 import 'aframe-particle-system-component';
-import 'aframe-joystick/joystick';
 import {Entity, Scene} from 'aframe-react';
 import '../../constants/Menu.css'
 
@@ -20,6 +19,7 @@ class Asteroid extends React.Component {
 
   componentDidMount(){} // NOTE Runs this method directly after the component first renders
   componentDidUpdate(){} // NOTE Runs this method every time we call setState({}) (i.e. Re-render component)
+  componentWillUnmount(){}
 
   render () {
     return (
