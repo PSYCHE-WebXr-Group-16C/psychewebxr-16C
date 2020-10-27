@@ -4,7 +4,7 @@ import 'aframe-particle-system-component';
 import {Entity, Scene} from 'aframe-react';
 
 const BACKGROUND = require("../../assets/images/Space.jpg");
-const SPACECRAFT = require('../../assets/models/PsycheSatellite.glb');
+const SPACECRAFT = require('../../assets/models/Spacecraft.glb');
 
 class Spacecraft extends React.Component {
   constructor(){
@@ -21,7 +21,7 @@ class Spacecraft extends React.Component {
       <div className = "Experience">
         <Scene vr-mode-ui="enabled: false">
           <div className="HUDElement" aframe-injected><button className="BackButton" onClick={this.props.action}></button></div>
-          <Entity gltf-model={SPACECRAFT} scale="10 10 10" rotation="0 270 0"
+          <Entity gltf-model={SPACECRAFT} scale="0.01 0.01 0.01" rotation="90 0 180"
           position={`${this.state.spacecraftX} ${this.state.spacecraftY} ${this.state.spacecraftZ}`}></Entity>
           <Entity primitive='a-sky' src={BACKGROUND} rotation="25 -100 0"/>
           <Entity light={{type: 'point'}} position="0 5 0" />
