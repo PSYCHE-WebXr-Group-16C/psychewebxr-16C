@@ -67,13 +67,9 @@ class Asteroid extends React.Component {
   render () {
     return (
       <div className = "Experience">
-        <Scene vr-mode-ui="enabled: true">
-          <div className="HUDElement" aframe-injected><button onClick={this.props.action}>Back</button></div>
-          
+        <Scene vr-mode-ui="enabled: false">
+          <div className="HUDElement" aframe-injected><button className="BackButton" onClick={this.props.action}></button></div>
           <a-camera wasd-controls-enabled={this.state.controlsEnabled} position={`${this.state.cameraX} ${this.state.cameraY} ${this.state.cameraZ}`}>
-            {
-            //  <a-cursor color={this.state.cursorColor}></a-cursor> <-- Causing performance issues
-            }
           </a-camera>
           <Entity primitive='a-sky' src={BACKGROUND} rotation="0 -100 0"/>
           <Entity light={{type: 'point'}} position="0 10 0" />
@@ -81,7 +77,7 @@ class Asteroid extends React.Component {
             scale="1 1 1"
             rotation="0 -8 0"
             position={`${this.state.asteroidX} ${this.state.asteroidY} ${this.state.asteroidZ}`}
-            events={
+            events = {
               { 
                 mousedown: () => {this.snapToPosition(0)}, // 'mousedown' is triggered when the mouse is clicked befroe release
                 mouseenter: () => {this.onObjectHover()},  // 'mouseenter' is triggered when 

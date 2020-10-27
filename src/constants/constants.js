@@ -3,7 +3,7 @@ export const DEBUG_MODE = true;
 
 /* Menu Modes */
 export const MENU_MODE = "MENU_MODE";
-export const SATELLITE_MODE = "SATELLITE_MODE";
+export const SPACECRAFT_MODE = "SPACECRAFT_MODE";
 export const ASTEROID_MODE = "ASTEROID_MODE";
 
 /* Presets */

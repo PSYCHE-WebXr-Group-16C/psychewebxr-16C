@@ -1,6 +1,6 @@
 import React from 'react';
-import {MENU_MODE, SATELLITE_MODE, ASTEROID_MODE} from '../constants/constants';
-import Satellite from './Satellite/Satellite'
+import {MENU_MODE, SPACECRAFT_MODE, ASTEROID_MODE} from '../constants/constants';
+import Spacecraft from './Spacecraft/Spacecraft'
 import Asteriod from './Asteroid/Asteriod'
 import '../constants/Menu.css'
 import Badge from '../assets/images/Psyche-Badge-Mono.png'
@@ -21,8 +21,8 @@ class SceneSelector extends React.Component {
         else if(this.state.mode === ASTEROID_MODE){
             return this.asteroidMode();
         }
-        else if(this.state.mode === SATELLITE_MODE){
-            return this.satelliteMode();
+        else if(this.state.mode === SPACECRAFT_MODE){
+            return this.spacecraftMode();
         }
         else {
             return this.setState({ mode: MENU_MODE });
@@ -40,8 +40,8 @@ class SceneSelector extends React.Component {
                         Asteroid Experience</button>
                 </div>
                 <div style = {{padding: '2vh', display: 'flex', justifyContent: 'center'}}>
-                    <button className="MenuButton" onClick={ () => { this.setState({mode: SATELLITE_MODE}) } }>
-                        Satellite Experience</button>
+                    <button className="MenuButton" onClick={ () => { this.setState({mode: SPACECRAFT_MODE}) } }>
+                        Spacecraft Experience</button>
                 </div>
                 <div style = {{position: 'absolute', right: '5px', bottom: '5px'}}>
                     <img className = "photo" src = {Badge} alt = "Psyche Badge"></img>
@@ -58,8 +58,8 @@ class SceneSelector extends React.Component {
         return <Asteriod action = {this.handler}/>
     }
 
-    satelliteMode() {
-        return <Satellite action = {this.handler}/>
+    spacecraftMode() {
+        return <Spacecraft action = {this.handler}/>
     }
 
     render () {
