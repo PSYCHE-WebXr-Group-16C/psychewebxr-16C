@@ -67,9 +67,13 @@ class Asteroid extends React.Component {
   render () {
     return (
       <div className = "Experience">
-        <Scene embedded vr-mode-ui="enabled: false">
+        <Scene vr-mode-ui="enabled: true">
+          <div className="HUDElement" aframe-injected><button onClick={this.props.action}>Back</button></div>
+          
           <a-camera wasd-controls-enabled={this.state.controlsEnabled} position={`${this.state.cameraX} ${this.state.cameraY} ${this.state.cameraZ}`}>
-            <a-cursor color={this.state.cursorColor}></a-cursor>
+            {
+            //  <a-cursor color={this.state.cursorColor}></a-cursor> <-- Causing performance issues
+            }
           </a-camera>
           <Entity primitive='a-sky' src={BACKGROUND} rotation="0 -100 0"/>
           <Entity light={{type: 'point'}} position="0 10 0" />
@@ -86,7 +90,7 @@ class Asteroid extends React.Component {
             } 
           ></Entity>
         </Scene>
-        <button onClick={this.props.action} className= "BackButton" style = {{position: "absolute"}}></button>
+       
       </div>
     );
   }
