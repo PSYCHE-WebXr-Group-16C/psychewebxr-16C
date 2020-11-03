@@ -1,0 +1,12 @@
+          <Entity gltf-model={ASTEROID} 
+            scale="1 1 1"
+            rotation="0 -8 0"
+            position={`${this.state.asteroidX} ${this.state.asteroidY} ${this.state.asteroidZ}`}
+            events = {
+              { 
+                mousedown: () => {this.snapToPosition(0)}, // 'mousedown' is triggered when the mouse is clicked befroe release
+                mouseenter: () => {this.onObjectHover()},  // 'mouseenter' is triggered when 
+                mouseleave: () => {this.onObjectLeave()}  // ''mouseleave' is triggered when you stop hovering over an object
+              }
+            } 
+          ></Entity>

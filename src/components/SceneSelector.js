@@ -4,6 +4,7 @@ import Spacecraft from './Spacecraft/Spacecraft'
 import Asteriod from './Asteroid/Asteriod'
 import '../constants/Menu.css'
 import Badge from '../assets/images/Psyche-Badge-Mono.png'
+import { render } from '@testing-library/react';
 
 
 class SceneSelector extends React.Component {
@@ -47,6 +48,7 @@ class SceneSelector extends React.Component {
                     <img className = "photo" src = {Badge} alt = "Psyche Badge"></img>
                 </div>
             </div>
+            
         );
     }
 
