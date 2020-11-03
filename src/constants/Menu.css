@@ -60,3 +60,23 @@ a-scene {
   opacity: 80%;
   outline:none;
 }
+
+.Teleport-Menu button{
+  width: 70px;
+  height: 25px;
+}
+
+.Teleport-Menu {
+  position: absolute;
+  z-index: 2;
+  top: 2px;
+  right: 2px;
+}
+
+.Teleport-Sub-Menu {
+  display: block;
+}
+.Teleport-Sub-Menu button {
+display: block;
+
+}

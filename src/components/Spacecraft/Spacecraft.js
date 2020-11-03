@@ -2,6 +2,7 @@ import React from 'react';
 import 'aframe';
 import 'aframe-particle-system-component';
 import {Entity, Scene} from 'aframe-react';
+import TeleportMenu from '../TeleportMenu/TeleportMenu';
 
 const BACKGROUND = require("../../assets/images/Space.jpg");
 const SPACECRAFT = require('../../assets/models/Spacecraft.glb');
@@ -14,6 +15,11 @@ class Spacecraft extends React.Component {
       spacecraftY: .760, // spacecraft Y Position
       spacecraftZ: -1.405, // spacecraft Z Position
     }
+    this.handleTeleport.bind(this);
+  }
+
+  handleTeleport(coords){
+    this.setState({cameraX: coords.x, cameraY: coords.y, cameraZ: coords.z,});
   }
 
   render () {
@@ -26,8 +32,7 @@ class Spacecraft extends React.Component {
           <Entity primitive='a-sky' src={BACKGROUND} rotation="25 -100 0"/>
           <Entity light={{type: 'point'}} position="0 5 0" />
         </Scene>
-        <button onClick={this.props.action} className= "BackButton"
-        style = {{position: "absolute"}}></button>
+        <TeleportMenu scene="ASTEROID" handleTeleport={this.teleport} />
       </div>
     );
   }
