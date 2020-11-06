@@ -62,8 +62,24 @@ a-scene {
 }
 
 .Teleport-Menu button{
-  width: 70px;
-  height: 25px;
+  width: 60px;
+  height: 60px;
+  border: none;
+  background: white;
+  border-radius: 10%;
+  opacity: 50%;
+  cursor: pointer;
+  color: black;
+  margin-bottom: 5px;
+  outline: none;
+}
+
+.Teleport-Menu-icon {
+  opacity: .75;
+}
+
+.Teleport-Menu-icon:hover {
+  opacity: 1.0;
 }
 
 .Teleport-Menu {
@@ -75,8 +91,105 @@ a-scene {
 
 .Teleport-Sub-Menu {
   display: block;
+  border-radius: 5%;
 }
-.Teleport-Sub-Menu button {
-display: block;
 
+/*
+* Code for the following collapse and expand animations for menu buttons found at
+* https://stackoverflow.com/questions/52377215/smoothen-accordion-collapse-css3-keyframes-animation
+*/
+
+.Collapse {
+  display: none;
+}
+
+@keyframes open {
+  0% {
+    display: none;
+    transform: translate3d(0, -1rem, 0);
+    opacity: 0;
+  }
+  1% {
+    display: block;
+    transform: translate3d(0, -1rem, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+.Expand {
+  animation: open 0.2s ease-in-out;
+  display: block;
+}
+
+.Teleport-Sub-Menu button {
+  display: block;
+  margin:0px;
+  width: 60px;
+  height: 60px;
+  background: white;
+  border-radius: 0%;
+  opacity: 50%;
+  cursor: pointer;
+  color: black;
+  outline: none;
+}
+
+.TextBox {
+  position: absolute;
+  z-index: 2;
+  bottom: 1vh;
+  right: 5%;
+  width: 90%;
+}
+
+.TextBoxCollapsible {
+  background-color:black;
+  cursor: pointer;
+  padding: 18px;
+  width: 30%;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  opacity: 75%;
+  border-radius: 5%;
+  color: white;
+}
+
+.TextBoxCollapsible:hover {
+  opacity: 90%;
+}
+
+.TextBoxContent {
+  display: block;
+  background-color: #1a1a1a;
+  color: white;
+  opacity: 80%;
+  width: 100%;
+  border-radius: 5%;
+}
+
+.TextExpand {
+  display: block;
+  animation: textOpen 0.2s ease-in-out;
+}
+
+.TextCollapse {
+  display: none;
+}
+
+@keyframes textOpen {
+  0% {
+    display: none;
+    transform: translate3d(0, 1rem, 0);
+  }
+  1% {
+    display: block;
+    transform: translate3d(0, 1rem, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
 }

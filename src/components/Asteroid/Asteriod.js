@@ -4,6 +4,7 @@ import 'aframe-particle-system-component';
 import {Entity, Scene} from 'aframe-react';
 import '../../constants/Menu.css'
 import TeleportMenu from '../TeleportMenu/TeleportMenu';
+import TextBox from '../TeleportMenu/TextBox';
 
 const BACKGROUND = require("../../assets/images/Space.jpg")
 const ASTEROID = require('../../assets/models/TexturedAsteroid.glb');
@@ -19,6 +20,7 @@ class Asteroid extends React.Component {
       cameraX: 0,
       cameraY: 1.7,
       cameraZ: 0,
+      controllsEnabled: false,
     }
 
     this.teleport = this.handleTeleport.bind(this);
