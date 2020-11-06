@@ -57,7 +57,7 @@ a-scene {
   border-top: 1.5vh solid transparent;
   border-bottom: 1.5vh solid transparent; 
   border-right: 3vw solid  rgba(165, 63, 91, 1);
-  opacity: 80%;
+  opacity: .8;
   outline:none;
 }
 
@@ -67,7 +67,7 @@ a-scene {
   border: none;
   background: white;
   border-radius: 10%;
-  opacity: 50%;
+  opacity: .5;
   cursor: pointer;
   color: black;
   margin-bottom: 5px;
@@ -131,7 +131,7 @@ a-scene {
   height: 60px;
   background: white;
   border-radius: 0%;
-  opacity: 50%;
+  opacity: .5;
   cursor: pointer;
   color: black;
   outline: none;
@@ -153,20 +153,20 @@ a-scene {
   border: none;
   outline: none;
   font-size: 1em;
-  opacity: 75%;
+  opacity: .75;
   border-radius: 5%;
   color: white;
 }
 
 .TextBoxCollapsible:hover {
-  opacity: 90%;
+  opacity: .90;
 }
 
 .TextBoxContent {
   display: block;
   background-color: #1a1a1a;
   color: white;
-  opacity: 80%;
+  opacity: .8;
   width: 100%;
   border-radius: 5%;
 }
