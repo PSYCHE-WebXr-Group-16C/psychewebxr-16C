@@ -6,7 +6,6 @@ class TextBox extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            message: this.props.message,
             isEnabled: true,
         }
     }
@@ -22,7 +21,7 @@ class TextBox extends React.Component {
         return(
             <div className = "TextBox">
                 <p className = {"TextBoxContent " + toggleValue}>
-                    {this.state.message}
+                    {this.props.message}
                 </p>
                 <button className = "TextBoxCollapsible " onClick={ () => { this.handleDisplay(); } }>{buttonText}</button>
             </div>
