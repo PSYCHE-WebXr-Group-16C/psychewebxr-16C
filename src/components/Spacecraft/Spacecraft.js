@@ -3,10 +3,11 @@ import 'aframe';
 import 'aframe-particle-system-component';
 import {Entity, Scene} from 'aframe-react';
 import TeleportMenu from '../TeleportMenu/TeleportMenu';
-import TextBox from '../TeleportMenu/TextBox';
 
 const BACKGROUND = require("../../assets/images/Space.jpg");
 const SPACECRAFT = require('../../assets/models/Spacecraft.glb');
+const BACK_BUTTON = require('../../assets/images/BackButton.png');
+const BACK_BUTTON2 = require('../../assets/images/BackButton2.png');
 
 class Spacecraft extends React.Component {
   constructor(){
@@ -16,9 +17,12 @@ class Spacecraft extends React.Component {
       spacecraftX: 0.189, // spacecraft X Position
       spacecraftY: .760, // spacecraft Y Position
       spacecraftZ: -1.405, // spacecraft Z Position
-      cameraX: 0,
-      cameraY: 1.7,
-      cameraZ: 0,
+      cameraX: -4.328,
+      cameraY: 1.859,
+      cameraZ: 1.069,
+      rotx: 0,
+      roty: 90,
+      rotz: 0,
       controllsEnabled: false,
     }
     this.teleport = this.handleTeleport.bind(this);
@@ -31,9 +35,13 @@ class Spacecraft extends React.Component {
   render () {
     return (
       <div className = "Experience">
+        <div className="HUDElement"><img className="BackButton" src={BACK_BUTTON} alt={BACK_BUTTON2} onClick={this.props.action}></img></div>
         <Scene vr-mode-ui="enabled: false">
-          <div className="HUDElement" aframe-injected><button className="BackButton" onClick={this.props.action}></button></div>
-          <a-camera wasd-controls-enabled={this.state.controlsEnabled} position={`${this.state.cameraX} ${this.state.cameraY} ${this.state.cameraZ}`}>
+          <a-camera 
+            wasd-controls-enabled={this.state.controlsEnabled} 
+            position={`${this.state.cameraX} ${this.state.cameraY} ${this.state.cameraZ}`}
+            rotation={{x: this.state.rotx, y: this.state.roty, z: this.state.rotz,}}
+          >
           </a-camera>
           <Entity gltf-model={SPACECRAFT} 
             scale="0.01 0.01 0.01" 

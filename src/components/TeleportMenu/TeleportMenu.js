@@ -1,9 +1,25 @@
 import React from 'react';
 import {
+    SPACECRAFT_1,
+    SPACECRAFT_2,
+    SPACECRAFT_3,
+    SPACECRAFT_4,
+    SPACECRAFT_5,
+    ASTEROID_1,
+    ASTEROID_2, 
+    ASTEROID_3,
+    ASTEROID_4,
+    ASTEROID_5,
     DEFAULT_CONTROLLER,
-    DEFAULT_PRESET, 
-    PRESET_2,
     MESSAGE_1,
+    MESSAGE_2,
+    MESSAGE_3,
+    MESSAGE_4,
+    // MESSAGE_5,
+    MESSAGE_6,
+    MESSAGE_7,
+    MESSAGE_8,
+    MESSAGE_9,
 } from '../../constants/constants';
 import TextBox from './TextBox';
 
@@ -20,20 +36,10 @@ class TeleportMenu extends React.Component{
             text: DEFAULT_CONTROLLER,
         }
 
-        /* ADD MORE BUTTONS TO HERE */
-        this.menu = (
-            <div className="Teleport-Sub-Menu">
-
-
-                <button onClick={ () => {this.props.handleTeleport(DEFAULT_PRESET)} } >Place 1</button>
-                <button onClick={ () => {this.props.handleTeleport(PRESET_2)} } >Place 2</button>
-            </div>
-        )
-
     }
 
     handleMenu(){
-        this.setState({isEnabled: !this.state.isEnabled,});
+        this.setState({isEnabled: !this.state.isEnabled});
     }
 
     handleMessage(msg) {
@@ -61,16 +67,22 @@ class TeleportMenu extends React.Component{
                         (
                             /* Asteroid Menu */
                             <div className = {"Teleport-Sub-Menu " + toggleValue}>
-                                <button onClick={ () => {this.props.handleTeleport(DEFAULT_PRESET); this.handleMessage(DEFAULT_CONTROLLER);} } >Place 1</button>
-                                <button onClick={ () => {this.props.handleTeleport(PRESET_2); this.handleMessage(MESSAGE_1);} } >Place 2</button>
+                                <button onClick={ () => {this.props.handleTeleport(ASTEROID_1); this.handleMessage(DEFAULT_CONTROLLER); this.handleMenu();} } >Free Roam</button>
+                                <button onClick={ () => {this.props.handleTeleport(ASTEROID_2); this.handleMessage(MESSAGE_6); this.handleMenu();} } >Overview</button>
+                                <button onClick={ () => {this.props.handleTeleport(ASTEROID_3); this.handleMessage(MESSAGE_7); this.handleMenu();} } >Position</button>
+                                <button onClick={ () => {this.props.handleTeleport(ASTEROID_4); this.handleMessage(MESSAGE_8); this.handleMenu();} } >Composition</button>
+                                <button onClick={ () => {this.props.handleTeleport(ASTEROID_5); this.handleMessage(MESSAGE_9); this.handleMenu();} } >Formation</button>
                             </div>
                         )
                         :
                         (
                             /* Spacecraft Menu */
                             <div className = {"Teleport-Sub-Menu " + toggleValue}>
-                                <button onClick={ () => {this.props.handleTeleport(DEFAULT_PRESET); this.handleMessage(DEFAULT_CONTROLLER);} } >Place 1</button>
-                                <button onClick={ () => {this.props.handleTeleport(PRESET_2); this.handleMessage(MESSAGE_1);} } >Place 2</button>
+                                <button onClick={ () => {this.props.handleTeleport(SPACECRAFT_1); this.handleMessage(DEFAULT_CONTROLLER); this.handleMenu();} } >Free Roam</button>
+                                <button onClick={ () => {this.props.handleTeleport(SPACECRAFT_2); this.handleMessage(MESSAGE_1); this.handleMenu();} } >Overview</button>
+                                <button onClick={ () => {this.props.handleTeleport(SPACECRAFT_3); this.handleMessage(MESSAGE_3); this.handleMenu();} } >Spectrometer</button>
+                                <button onClick={ () => {this.props.handleTeleport(SPACECRAFT_4); this.handleMessage(MESSAGE_4); this.handleMenu();} } >Magnetometer</button>
+                                <button onClick={ () => {this.props.handleTeleport(SPACECRAFT_5); this.handleMessage(MESSAGE_2); this.handleMenu();} } >Imager</button>
                             </div>
                         ) 
                     }

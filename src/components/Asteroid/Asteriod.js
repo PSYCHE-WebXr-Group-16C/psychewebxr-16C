@@ -4,11 +4,11 @@ import 'aframe-particle-system-component';
 import {Entity, Scene} from 'aframe-react';
 import '../../constants/Menu.css'
 import TeleportMenu from '../TeleportMenu/TeleportMenu';
-import TextBox from '../TeleportMenu/TextBox';
 
 const BACKGROUND = require("../../assets/images/Space.jpg")
 const ASTEROID = require('../../assets/models/TexturedAsteroid.glb');
-
+const BACK_BUTTON = require('../../assets/images/BackButton.png');
+const BACK_BUTTON2 = require('../../assets/images/BackButton2.png');
 class Asteroid extends React.Component {
   constructor(props){
     super(props);
@@ -20,6 +20,9 @@ class Asteroid extends React.Component {
       cameraX: 0,
       cameraY: 1.7,
       cameraZ: 0,
+      rotx: 0,
+      roty: 0,
+      rotz: 0,
       controllsEnabled: false,
     }
 
@@ -27,10 +30,7 @@ class Asteroid extends React.Component {
 
   }
 
-  componentDidMount(){} // NOTE Runs this method directly after the component first renders
-  componentDidUpdate(){} // NOTE Runs this method every time we call setState({}) (i.e. Re-render component)
-  componentWillUnmount(){}
-
+  componentDidMount(){}
 
   handleTeleport(coords){
     this.setState({cameraX: coords.x, cameraY: coords.y, cameraZ: coords.z,});
@@ -39,9 +39,13 @@ class Asteroid extends React.Component {
   render () {
     return (
       <div className = "Experience">
+        <div className="HUDElement"><img className="BackButton" src={BACK_BUTTON2} alt={BACK_BUTTON} onClick={this.props.action}></img></div>
         <Scene vr-mode-ui="enabled: false">
-          <div className="HUDElement" aframe-injected><button className="BackButton" onClick={this.props.action}></button></div>
-          <a-camera wasd-controls-enabled={this.state.controlsEnabled} position={`${this.state.cameraX} ${this.state.cameraY} ${this.state.cameraZ}`}>
+          <a-camera 
+            wasd-controls-enabled={this.state.controlsEnabled} 
+            position={`${this.state.cameraX} ${this.state.cameraY} ${this.state.cameraZ}`}
+            rotation={`${this.state.rotx} ${this.state.roty} ${this.state.rotz}`}
+          >
           </a-camera>
           <Entity primitive='a-sky' src={BACKGROUND} rotation="0 -100 0"/>
           <Entity light={{type: 'point'}} position="0 10 0" />
