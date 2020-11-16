@@ -1,10 +1,11 @@
 import React from 'react';
-import {MENU_MODE, SPACECRAFT_MODE, ASTEROID_MODE} from '../constants/constants';
+import {MENU_MODE, SPACECRAFT_MODE, ASTEROID_MODE, ABOUT_PSYCHE_MODE} from '../constants/constants';
 import Spacecraft from './Spacecraft/Spacecraft';
 import Asteriod from './Asteroid/Asteriod';
 import '../constants/Menu.css';
 import Badge from '../assets/images/Psyche-Badge-Mono.png';
 import {printDebug} from '../DebugTools';
+import AboutPsyche from './About/AboutPsyche';
 
 class SceneSelector extends React.Component {
 
@@ -46,6 +47,9 @@ class SceneSelector extends React.Component {
         else if(this.state.mode === SPACECRAFT_MODE){
             return this.spacecraftMode();
         }
+        else if(this.state.mode === ABOUT_PSYCHE_MODE){
+            return this.aboutPsycheMode();
+        }
         else {
             return this.setState({ mode: MENU_MODE });
         }
@@ -85,7 +89,8 @@ class SceneSelector extends React.Component {
                 </div>
                 <div className="Row">
                 {
-                    // INSERT 2 CARDS HERE
+                    <button className="MenuButton" onClick={ () => { this.setState({mode: ABOUT_PSYCHE_MODE}) } }>About Psyche</button>
+                    // INSERT 1 CARDS HERE
                 }
                 </div>
                 <div className="Row">
@@ -103,6 +108,10 @@ class SceneSelector extends React.Component {
 
     handler() {
         this.setState({ mode: MENU_MODE });
+    }
+
+    aboutPsycheMode() {
+        return <AboutPsyche mobileMode={this.state.mobileMode} action={this.handler}/>
     }
 
     asteroidMode() {
