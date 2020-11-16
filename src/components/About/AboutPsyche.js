@@ -47,7 +47,7 @@ class AboutPsyche extends React.Component {
                             <img className="AboutPhoto" src={TRAJECTORY} alt={IMG_ERROR}></img>
                         </TabPanel>
                         <TabPanel>
-                            <h2>Any content 3</h2>
+                            <h2>Orbit of the Spacecraft:</h2>
                             <p>Once the spacecraft arrives at the asteroid in 2026, plans call for it to spend 21 months at the asteroid, performing science operations from four staging orbits, which become successively closer.</p>
                             <img className="AboutPhoto" src={ORBIT} alt={IMG_ERROR}></img>
                         </TabPanel>
