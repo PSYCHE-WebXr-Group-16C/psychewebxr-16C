@@ -1,23 +1,44 @@
 import React from 'react';
 import {MENU_MODE, SPACECRAFT_MODE, ASTEROID_MODE} from '../constants/constants';
-import Spacecraft from './Spacecraft/Spacecraft'
-import Asteriod from './Asteroid/Asteriod'
-import '../constants/Menu.css'
-import Badge from '../assets/images/Psyche-Badge-Mono.png'
-import { render } from '@testing-library/react';
-
+import Spacecraft from './Spacecraft/Spacecraft';
+import Asteriod from './Asteroid/Asteriod';
+import '../constants/Menu.css';
+import Badge from '../assets/images/Psyche-Badge-Mono.png';
+import {printDebug} from '../DebugTools';
 
 class SceneSelector extends React.Component {
 
     constructor(props) {
         super(props);
         this.handler = this.handler.bind(this);
-        this.state = { mode: MENU_MODE }
+        this.state = { mode: MENU_MODE, mobileMode: false,}
+    }
+
+    checkMobileMode(){
+        if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+            if(this.state.mobileMode !== true){
+                this.setState({mobileMode: true,});
+            }
+        }
+        else {
+            if(this.state.mobileMode !== false){
+                this.setState({mobileMode: false,});
+            }
+        }
+    }
+
+    componentDidMount() { 
+        this.checkMobileMode();
+        printDebug("Launching App in mobile mode: " + this.state.mobileMode);
+    }
+
+    componentDidUpdate(){
+        this.checkMobileMode();
     }
 
     buildScene(){
         if(this.state.mode === MENU_MODE){
-            return this.menuMode();
+            return this.mainMenu();
         }
         else if(this.state.mode === ASTEROID_MODE){
             return this.asteroidMode();
@@ -41,15 +62,43 @@ class SceneSelector extends React.Component {
                         Asteroid Experience</button>
                 </div>
                 <div style = {{padding: '2vh', display: 'flex', justifyContent: 'center'}}>
-                    <button className="MenuButton" onClick={ () => { this.setState({mode: SPACECRAFT_MODE}) } }>
-                        Spacecraft Experience</button>
+                    <button className="MenuButton" onClick={ () => { this.setState({mode: SPACECRAFT_MODE}) } }>Spacecraft Experience</button>
                 </div>
                 <div style = {{position: 'absolute', right: '5px', bottom: '5px'}}>
-                    <img className = "photo" src = {Badge} alt = "Psyche Badge"></img>
+                    <div onClick={() => {window.location.href="https://psyche.asu.edu/";}}><img className = "photo" src={Badge} alt="Psyche Badge"></img></div>
                 </div>
+                <div className="githubWrapper" onClick={() => {window.location.href="https://github.com/PSYCHE-WebXr-Group-16C/psychewebxr";}}><i className="fa fa-github"></i></div>
             </div>
             
         );
+    }
+
+    mainMenu(){
+        return(
+            <div>
+                <div className="Title">
+                    <h1>Please Select Your WebXR Experience!</h1>
+                </div>
+                <div className="Row">
+                    <button className="MenuButton" onClick={ () => { this.setState({mode: ASTEROID_MODE}) } }>Asteroid Experience</button>
+                    <button className="MenuButton" onClick={ () => { this.setState({mode: SPACECRAFT_MODE}) } }>Spacecraft Experience</button>
+                </div>
+                <div className="Row">
+                {
+                    // INSERT 2 CARDS HERE
+                }
+                </div>
+                <div className="Row">
+                    {
+                        // INSERT 2 CARDS HERE
+                    }
+                </div>
+                <div className="Footer">
+                    <div className="githubWrapper" onClick={() => {window.location.href = "https://github.com/PSYCHE-WebXr-Group-16C/psychewebxr";}}><i className="fa fa-github"></i></div>
+                    <img onClick={() => {window.location.href="https://psyche.asu.edu/";}} className="photo" src={Badge} alt="Psyche Badge"></img>
+                </div>
+            </div>
+        )
     }
 
     handler() {
@@ -57,11 +106,11 @@ class SceneSelector extends React.Component {
     }
 
     asteroidMode() {
-        return <Asteriod action = {this.handler}/>
+        return <Asteriod mobileMode={this.state.mobileMode} action={this.handler}/>
     }
 
     spacecraftMode() {
-        return <Spacecraft action = {this.handler}/>
+        return <Spacecraft mobileMode={this.state.mobileMode} action={this.handler}/>
     }
 
     render () {

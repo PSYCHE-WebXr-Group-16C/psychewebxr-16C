@@ -1,4 +1,7 @@
 body {
+    font-family: Helvetica;
+    width: 100%;
+    height: 100%;
     background-image: linear-gradient(to right,
     rgba(245, 125, 50, 1) 0%,
     rgba(239, 89, 102,1) 50%);

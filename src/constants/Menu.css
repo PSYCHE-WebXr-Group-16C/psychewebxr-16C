@@ -1,8 +1,20 @@
+.Title {
+  text-align: center;
+  padding: 30px;
+  margin-bottom: 20px;
+}
+
+.Row {
+  display: flex;
+  justify-content: space-around;
+}
+
 .MenuButton {
     background: rgba(48, 33, 68, 1);
     border: none;
     color: white;
     padding: 2vh 2vw 2vh 2vw;
+    min-width: 150px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -15,7 +27,11 @@
     font-weight: bold;
   }
 
-h1 {
+.MenuButton:hover{
+  opacity: .9;
+}
+
+.Title h1 {
     color: white;
     font-size: 4vw;
     text-shadow: .1vw .1vw rgba(48, 33, 68, 1);
@@ -23,8 +39,8 @@ h1 {
 }
 
 .photo {
-  height: 8vw;
-  width: 8vw;
+  height: 70px;
+  width: 70px;
   max-width: 100px;
   max-height: 100px;
 }
@@ -49,7 +65,7 @@ a-scene {
   padding:0;
 }
 
-.BackButton{
+/* .BackButton{
   width: 0; 
   height: 0;
   margin: 1vh 1vw 1vh 1vw;
@@ -57,21 +73,29 @@ a-scene {
   border-top: 1.5vh solid transparent;
   border-bottom: 1.5vh solid transparent; 
   border-right: 3vw solid  rgba(165, 63, 91, 1);
-  opacity: 80%;
+  opacity: .8;
   outline:none;
+} */
+
+.BackButton{
+  width: 50px;
+  height: 50px;
+  top: 10px;
+  left: 10px;
+  display: block;
+  position: relative;
 }
 
-.Teleport-Menu button{
-  width: 60px;
-  height: 60px;
-  border: none;
-  background: white;
-  border-radius: 10%;
-  opacity: 50%;
-  cursor: pointer;
-  color: black;
-  margin-bottom: 5px;
-  outline: none;
+.BackButton:hover{
+  opacity: .9;
+}
+
+.Teleport-Menu {
+  position: absolute;
+  z-index: 2;
+  top: 5px;
+  right: 5px;
+  width: 90px;
 }
 
 .Teleport-Menu-icon {
@@ -82,11 +106,18 @@ a-scene {
   opacity: 1.0;
 }
 
-.Teleport-Menu {
-  position: absolute;
-  z-index: 2;
-  top: 2px;
-  right: 2px;
+.Teleport-Menu button{
+  float: right;
+  width: 60px;
+  height: 60px;
+  border: none;
+  background: white;
+  border-radius: 10%;
+  opacity: .5;
+  cursor: pointer;
+  color: black;
+  margin-bottom: 5px;
+  outline: none;
 }
 
 .Teleport-Sub-Menu {
@@ -127,11 +158,11 @@ a-scene {
 .Teleport-Sub-Menu button {
   display: block;
   margin:0px;
-  width: 60px;
+  width: 85px;
   height: 60px;
   background: white;
   border-radius: 0%;
-  opacity: 50%;
+  opacity: .5;
   cursor: pointer;
   color: black;
   outline: none;
@@ -153,20 +184,20 @@ a-scene {
   border: none;
   outline: none;
   font-size: 1em;
-  opacity: 75%;
+  opacity: .75;
   border-radius: 5%;
   color: white;
 }
 
 .TextBoxCollapsible:hover {
-  opacity: 90%;
+  opacity: .90;
 }
 
 .TextBoxContent {
   display: block;
   background-color: #1a1a1a;
   color: white;
-  opacity: 80%;
+  opacity: .8;
   width: 100%;
   border-radius: 5%;
 }
@@ -192,4 +223,23 @@ a-scene {
   100% {
     transform: translate3d(0, 0, 0);
   }
+}
+
+.githubWrapper {
+  font-size: 70px;
+  color: black;
+}
+
+.githubWrapper:hover {
+  cursor: pointer;
+  color: rgba(48, 33, 68, 1);
+}
+
+.Footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
 }
