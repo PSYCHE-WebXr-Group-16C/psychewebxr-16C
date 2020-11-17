@@ -5,6 +5,7 @@ export const DEBUG_MODE = true; // TURN OFF IN DEPLOYMENT
 export const MENU_MODE = "MENU_MODE";
 export const SPACECRAFT_MODE = "SPACECRAFT_MODE";
 export const ASTEROID_MODE = "ASTEROID_MODE";
+export const ABOUT_PSYCHE_MODE = "ABOUT_PSYCHE_MODE";
 
 /* Presets */
 export const SPACECRAFT_1 = {x: 0, y: 1.7, z: 0, rx: 0, ry: 0, rz: 0};
