@@ -18,7 +18,7 @@ class SceneSelector extends React.Component {
         this.handler = this.handler.bind(this);
         this.toMode = this.toMode.bind(this);
         this.navigateToWebsite = this.navigateToWebsite.bind(this);
-        this.state = { mode: MENU_MODE, mobileMode: false,}
+        this.state = { mode: MENU_MODE, mobileMode: false, previousMode: MENU_MODE }
     }
 
     checkMobileMode(){
@@ -41,7 +41,7 @@ class SceneSelector extends React.Component {
 
     componentDidUpdate(){
         this.checkMobileMode();
-        if(this.state.mode === MENU_MODE && ! this.state.mobileMode){
+        if(this.state.mode === MENU_MODE && !this.state.mobileMode && ( this.state.previousMode === SPACECRAFT_MODE || this.state.previousMode === ASTEROID_MODE )){
             document.getElementsByClassName("a-fullscreen")[0].className = ""; // Fixes Full-screen issue
         }
 
@@ -153,7 +153,8 @@ class SceneSelector extends React.Component {
             document.location.reload(); //TODO This is a quick fix for now. Please fix later
         }
         else{
-            this.setState({ mode: MENU_MODE });
+            const temp = this.state.mode;
+            this.setState({ mode: MENU_MODE, previousMode: temp });
         }
     }
 
@@ -166,7 +167,8 @@ class SceneSelector extends React.Component {
     }
 
     toMode(x){
-        this.setState({ mode: x });
+        const temp = this.state.mode;
+        this.setState({ mode: x, previousMode: temp });
     }
 
     asteroidMode() {
