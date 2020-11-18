@@ -1,5 +1,4 @@
 import React from 'react';
-import { ASTEROID_MODE, SPACECRAFT_MODE } from '../constants/constants';
 
 class ExperinceCard extends React.Component {
 
@@ -10,10 +9,10 @@ class ExperinceCard extends React.Component {
 
     render() {
 
-        if (this.props.goToUrl !== "ASTEROID" && this.props.goToUrl !== "SPACECRAFT") {
+        if (this.props.goToUrl !== null) {
             return (
-                <div className="Experience-Card-Wrapper" onClick={ () => { window.location.href = this.props.goToUrl} }>
-                    <div className="Experience-Card" >
+                <div className="Experience-Card-Wrapper" onClick={ () => { this.props.exeFunc(this.props.goToUrl) } }>
+                    <div className="Experience-Card" style={{"background-color": this.props.color}} >
                         <img className="Experience-Card-Image" src={this.props.photoPath} alt={this.props.altPath}></img>
                         <p className="Experience-Card-Text">{this.props.title}</p>
                     </div>
@@ -21,26 +20,14 @@ class ExperinceCard extends React.Component {
             )
         }
         else {
-            if (this.props.goToUrl === "ASTEROID"){
-                return (
-                    <div className="Experience-Card-Wrapper" onClick={() => { this.props.exeFunc(ASTEROID_MODE) }} >
-                        <div className="Experience-Card" >
-                            <img className="Experience-Card-Image" src={this.props.photoPath} alt={this.props.altPath}></img>
-                            <p className="Experience-Card-Text">{this.props.title}</p>
-                        </div>
+            return (
+                <div className="Experience-Card-Wrapper" onClick={() => { this.props.exeFunc(this.props.mode) }} >
+                    <div className="Experience-Card" style={{"background-color": this.props.color}}>
+                        <img className="Experience-Card-Image" src={this.props.photoPath} alt={this.props.altPath}></img>
+                        <p className="Experience-Card-Text">{this.props.title}</p>
                     </div>
-                )
-            }
-            else {
-                return (
-                    <div className="Experience-Card-Wrapper" onClick={() => { this.props.exeFunc(SPACECRAFT_MODE) }} >
-                        <div className="Experience-Card" >
-                            <img className="Experience-Card-Image" src={this.props.photoPath} alt={this.props.altPath}></img>
-                            <p className="Experience-Card-Text">{this.props.title}</p>
-                        </div>
-                    </div>
-                )
-            }
+                </div>
+            )
         }
     }
 }

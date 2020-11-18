@@ -6,12 +6,18 @@ import '../constants/Menu.css';
 import Badge from '../assets/images/Psyche-Badge-Mono.png';
 import {printDebug} from '../DebugTools';
 import AboutPsyche from './About/AboutPsyche';
+import ExperienceCard from './ExperienceCard';
+import retroPicture from '../assets/images/RetroSpaceCraft.png';
+import psycheAsteroid from '../assets/images/PsycheAsteroid.jpg';
+import github from '../assets/images/github.png';
 
 class SceneSelector extends React.Component {
 
     constructor(props) {
         super(props);
         this.handler = this.handler.bind(this);
+        this.toMode = this.toMode.bind(this);
+        this.navigateToWebsite = this.navigateToWebsite.bind(this);
         this.state = { mode: MENU_MODE, mobileMode: false,}
     }
 
@@ -35,6 +41,10 @@ class SceneSelector extends React.Component {
 
     componentDidUpdate(){
         this.checkMobileMode();
+        if(this.state.mode === MENU_MODE && ! this.state.mobileMode){
+            document.getElementsByClassName("a-fullscreen")[0].className = ""; // Fixes Full-screen issue
+        }
+
     }
 
     buildScene(){
@@ -84,34 +94,79 @@ class SceneSelector extends React.Component {
                     <h1>Please Select Your WebXR Experience!</h1>
                 </div>
                 <div className="Row">
-                    <button className="MenuButton" onClick={ () => { this.setState({mode: ASTEROID_MODE}) } }>Asteroid Experience</button>
-                    <button className="MenuButton" onClick={ () => { this.setState({mode: SPACECRAFT_MODE}) } }>Spacecraft Experience</button>
+                    <ExperienceCard
+                        goToUrl={null}
+                        title="Asteroid"
+                        mode={ASTEROID_MODE}
+                        photoPath={psycheAsteroid}
+                        altPath={""}
+                        exeFunc={this.toMode}
+                        color={"yellow"}
+                    />
+                    <ExperienceCard
+                        goToUrl={null}
+                        title="Spacecraft"
+                        mode={SPACECRAFT_MODE}
+                        photoPath={retroPicture}
+                        altPath={""}
+                        exeFunc={this.toMode}
+                        color={"green"}
+                    />
                 </div>
                 <div className="Row">
-                {
-                    <button className="MenuButton" onClick={ () => { this.setState({mode: ABOUT_PSYCHE_MODE}) } }>About Psyche</button>
-                    // INSERT 1 CARDS HERE
-                }
+                <ExperienceCard
+                        goToUrl={null}
+                        title="About Psyche"
+                        mode={ABOUT_PSYCHE_MODE}
+                        photoPath={retroPicture}
+                        altPath={""}
+                        exeFunc={this.toMode}
+                        color={"blue"}
+                    />
                 </div>
                 <div className="Row">
-                    {
-                        // INSERT 2 CARDS HERE
-                    }
-                </div>
-                <div className="Footer">
-                    <div className="githubWrapper" onClick={() => {window.location.href = "https://github.com/PSYCHE-WebXr-Group-16C/psychewebxr";}}><i className="fa fa-github"></i></div>
-                    <img onClick={() => {window.location.href="https://psyche.asu.edu/";}} className="photo" src={Badge} alt="Psyche Badge"></img>
+                <ExperienceCard
+                        goToUrl={"https://github.com/PSYCHE-WebXr-Group-16C/psychewebxr"}
+                        title="Github"
+                        mode={null}
+                        photoPath={github}
+                        altPath={""}
+                        exeFunc={this.navigateToWebsite}
+                        color={"red"}
+                    />
+                    <ExperienceCard
+                        goToUrl={"https://psyche.asu.edu/"}
+                        title="Mission Site"
+                        mode={null}
+                        photoPath={Badge}
+                        altPath={""}
+                        exeFunc={this.navigateToWebsite}
+                        color={"green"}
+                    />
                 </div>
             </div>
         )
     }
 
     handler() {
-        this.setState({ mode: MENU_MODE });
+        if(this.state.mobileMode === true){
+            document.location.reload(); //TODO This is a quick fix for now. Please fix later
+        }
+        else{
+            this.setState({ mode: MENU_MODE });
+        }
     }
 
     aboutPsycheMode() {
         return <AboutPsyche mobileMode={this.state.mobileMode} action={this.handler}/>
+    }
+
+    navigateToWebsite(x){
+        window.location.href = x;
+    }
+
+    toMode(x){
+        this.setState({ mode: x });
     }
 
     asteroidMode() {
