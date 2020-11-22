@@ -1,14 +1,17 @@
 import React from 'react';
-import {MENU_MODE, SPACECRAFT_MODE, ASTEROID_MODE, ABOUT_PSYCHE_MODE} from '../constants/constants';
+import {MENU_MODE, SPACECRAFT_MODE, ASTEROID_MODE, ABOUT_PSYCHE_MODE, ABOUT_TEAM_MODE} from '../constants/constants';
 import Spacecraft from './Spacecraft/Spacecraft';
 import Asteriod from './Asteroid/Asteriod';
 import '../constants/Menu.css';
 import Badge from '../assets/images/Psyche-Badge-Mono.png';
 import {printDebug} from '../DebugTools';
 import AboutPsyche from './About/AboutPsyche';
+import AboutTeam from './About/AboutTeam';
 import ExperienceCard from './ExperienceCard';
 import retroPicture from '../assets/images/RetroSpaceCraft.png';
-import psycheAsteroid from '../assets/images/PsycheAsteroid.jpg';
+import psycheAsteroid from '../assets/images/Menu-Asteriod.png';
+import psycheInfo from '../assets/images/Menu-AboutPsyche.png';
+import psycheTeam from '../assets/images/Menu-AboutTeam.png';
 import github from '../assets/images/github.png';
 
 class SceneSelector extends React.Component {
@@ -60,6 +63,9 @@ class SceneSelector extends React.Component {
         else if(this.state.mode === ABOUT_PSYCHE_MODE){
             return this.aboutPsycheMode();
         }
+        else if(this.state.mode === ABOUT_TEAM_MODE){
+            return this.aboutTeamMode();
+        }
         else {
             return this.setState({ mode: MENU_MODE });
         }
@@ -101,7 +107,7 @@ class SceneSelector extends React.Component {
                         photoPath={psycheAsteroid}
                         altPath={""}
                         exeFunc={this.toMode}
-                        color={"yellow"}
+                        color={"#FFCC33"}
                     />
                     <ExperienceCard
                         goToUrl={null}
@@ -110,18 +116,27 @@ class SceneSelector extends React.Component {
                         photoPath={retroPicture}
                         altPath={""}
                         exeFunc={this.toMode}
-                        color={"green"}
+                        color={"#66CCFF"}
                     />
                 </div>
                 <div className="Row">
-                <ExperienceCard
+                    <ExperienceCard
                         goToUrl={null}
                         title="About Psyche"
                         mode={ABOUT_PSYCHE_MODE}
-                        photoPath={retroPicture}
+                        photoPath={psycheInfo}
                         altPath={""}
                         exeFunc={this.toMode}
-                        color={"blue"}
+                        color={"#CCFF99"}
+                    />
+                    <ExperienceCard
+                        goToUrl={null}
+                        title="About Team"
+                        mode={ABOUT_TEAM_MODE}
+                        photoPath={psycheTeam}
+                        altPath={""}
+                        exeFunc={this.toMode}
+                        color={"#FFFF99"}
                     />
                 </div>
                 <div className="Row">
@@ -132,7 +147,7 @@ class SceneSelector extends React.Component {
                         photoPath={github}
                         altPath={""}
                         exeFunc={this.navigateToWebsite}
-                        color={"red"}
+                        color={"#CCCCCC"}
                     />
                     <ExperienceCard
                         goToUrl={"https://psyche.asu.edu/"}
@@ -141,7 +156,7 @@ class SceneSelector extends React.Component {
                         photoPath={Badge}
                         altPath={""}
                         exeFunc={this.navigateToWebsite}
-                        color={"green"}
+                        color={"#FF9966"}
                     />
                 </div>
             </div>
@@ -160,6 +175,10 @@ class SceneSelector extends React.Component {
 
     aboutPsycheMode() {
         return <AboutPsyche mobileMode={this.state.mobileMode} action={this.handler}/>
+    }
+
+    aboutTeamMode(){
+        return <AboutTeam mobileMode={this.state.mobileMode} action={this.handler}/>
     }
 
     navigateToWebsite(x){
