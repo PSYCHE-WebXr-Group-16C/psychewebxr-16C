@@ -1,18 +1,27 @@
 import React from 'react';
-import {MENU_MODE, SPACECRAFT_MODE, ASTEROID_MODE, ABOUT_PSYCHE_MODE} from '../constants/constants';
+import {MENU_MODE, SPACECRAFT_MODE, ASTEROID_MODE, ABOUT_PSYCHE_MODE, ABOUT_TEAM_MODE} from '../constants/constants';
 import Spacecraft from './Spacecraft/Spacecraft';
 import Asteriod from './Asteroid/Asteriod';
 import '../constants/Menu.css';
 import Badge from '../assets/images/Psyche-Badge-Mono.png';
 import {printDebug} from '../DebugTools';
 import AboutPsyche from './About/AboutPsyche';
+import AboutTeam from './About/AboutTeam';
+import ExperienceCard from './ExperienceCard';
+import retroPicture from '../assets/images/RetroSpaceCraft.png';
+import psycheAsteroid from '../assets/images/Menu-Asteriod.png';
+import psycheInfo from '../assets/images/Menu-AboutPsyche.png';
+import psycheTeam from '../assets/images/Menu-AboutTeam.png';
+import github from '../assets/images/github.png';
 
 class SceneSelector extends React.Component {
 
     constructor(props) {
         super(props);
         this.handler = this.handler.bind(this);
-        this.state = { mode: MENU_MODE, mobileMode: false,}
+        this.toMode = this.toMode.bind(this);
+        this.navigateToWebsite = this.navigateToWebsite.bind(this);
+        this.state = { mode: MENU_MODE, mobileMode: false, previousMode: MENU_MODE }
     }
 
     checkMobileMode(){
@@ -35,6 +44,10 @@ class SceneSelector extends React.Component {
 
     componentDidUpdate(){
         this.checkMobileMode();
+        if(this.state.mode === MENU_MODE && !this.state.mobileMode && ( this.state.previousMode === SPACECRAFT_MODE || this.state.previousMode === ASTEROID_MODE )){
+            document.getElementsByClassName("a-fullscreen")[0].className = ""; // Fixes Full-screen issue
+        }
+
     }
 
     buildScene(){
@@ -49,6 +62,9 @@ class SceneSelector extends React.Component {
         }
         else if(this.state.mode === ABOUT_PSYCHE_MODE){
             return this.aboutPsycheMode();
+        }
+        else if(this.state.mode === ABOUT_TEAM_MODE){
+            return this.aboutTeamMode();
         }
         else {
             return this.setState({ mode: MENU_MODE });
@@ -84,34 +100,94 @@ class SceneSelector extends React.Component {
                     <h1>Please Select Your WebXR Experience!</h1>
                 </div>
                 <div className="Row">
-                    <button className="MenuButton" onClick={ () => { this.setState({mode: ASTEROID_MODE}) } }>Asteroid Experience</button>
-                    <button className="MenuButton" onClick={ () => { this.setState({mode: SPACECRAFT_MODE}) } }>Spacecraft Experience</button>
+                    <ExperienceCard
+                        goToUrl={null}
+                        title="Asteroid"
+                        mode={ASTEROID_MODE}
+                        photoPath={psycheAsteroid}
+                        altPath={""}
+                        exeFunc={this.toMode}
+                        color={"#FFCC33"}
+                    />
+                    <ExperienceCard
+                        goToUrl={null}
+                        title="Spacecraft"
+                        mode={SPACECRAFT_MODE}
+                        photoPath={retroPicture}
+                        altPath={""}
+                        exeFunc={this.toMode}
+                        color={"#66CCFF"}
+                    />
                 </div>
                 <div className="Row">
-                {
-                    <button className="MenuButton" onClick={ () => { this.setState({mode: ABOUT_PSYCHE_MODE}) } }>About Psyche</button>
-                    // INSERT 1 CARDS HERE
-                }
+                    <ExperienceCard
+                        goToUrl={null}
+                        title="About Psyche"
+                        mode={ABOUT_PSYCHE_MODE}
+                        photoPath={psycheInfo}
+                        altPath={""}
+                        exeFunc={this.toMode}
+                        color={"#CCFF99"}
+                    />
+                    <ExperienceCard
+                        goToUrl={null}
+                        title="About Team"
+                        mode={ABOUT_TEAM_MODE}
+                        photoPath={psycheTeam}
+                        altPath={""}
+                        exeFunc={this.toMode}
+                        color={"#FFFF99"}
+                    />
                 </div>
                 <div className="Row">
-                    {
-                        // INSERT 2 CARDS HERE
-                    }
-                </div>
-                <div className="Footer">
-                    <div className="githubWrapper" onClick={() => {window.location.href = "https://github.com/PSYCHE-WebXr-Group-16C/psychewebxr";}}><i className="fa fa-github"></i></div>
-                    <img onClick={() => {window.location.href="https://psyche.asu.edu/";}} className="photo" src={Badge} alt="Psyche Badge"></img>
+                <ExperienceCard
+                        goToUrl={"https://github.com/PSYCHE-WebXr-Group-16C/psychewebxr"}
+                        title="Github"
+                        mode={null}
+                        photoPath={github}
+                        altPath={""}
+                        exeFunc={this.navigateToWebsite}
+                        color={"#CCCCCC"}
+                    />
+                    <ExperienceCard
+                        goToUrl={"https://psyche.asu.edu/"}
+                        title="Mission Site"
+                        mode={null}
+                        photoPath={Badge}
+                        altPath={""}
+                        exeFunc={this.navigateToWebsite}
+                        color={"#FF9966"}
+                    />
                 </div>
             </div>
         )
     }
 
     handler() {
-        this.setState({ mode: MENU_MODE });
+        if(this.state.mobileMode === true){
+            document.location.reload(); //TODO This is a quick fix for now. Please fix later
+        }
+        else{
+            const temp = this.state.mode;
+            this.setState({ mode: MENU_MODE, previousMode: temp });
+        }
     }
 
     aboutPsycheMode() {
         return <AboutPsyche mobileMode={this.state.mobileMode} action={this.handler}/>
+    }
+
+    aboutTeamMode(){
+        return <AboutTeam mobileMode={this.state.mobileMode} action={this.handler}/>
+    }
+
+    navigateToWebsite(x){
+        window.location.href = x;
+    }
+
+    toMode(x){
+        const temp = this.state.mode;
+        this.setState({ mode: x, previousMode: temp });
     }
 
     asteroidMode() {
