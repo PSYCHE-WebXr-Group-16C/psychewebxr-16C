@@ -387,4 +387,49 @@ a-scene {
 .person:nth-child(2n){
   flex-direction:row-reverse
 }
+
+.Nav-Buttons-Grid {
+  position: absolute;
+  z-index: 2;
+  left: 40%;
+  bottom: 5%
+}
+
+.Nav-Container {
+  justify-content: center;
+  display:flex;
+}
+
+.Nav-Button {
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border:none;
+  overflow: hidden;
+  outline: none;
+}
+
+.Nav-Button-Icon-Left {
+  width: 15px;
+  height: 15px
+}
+
+.Nav-Button-Icon-Right {
+  width: 15px;
+  height: 15px;
+  transform: scaleX(-1);
+}
+
+.Nav-Button-Icon-Up {
+  width: 15px;
+  height: 15px;
+  transform: rotate(90deg);
+}
+
+.Nav-Button-Icon-Down {
+  width: 15px;
+  height: 15px;
+  transform: rotate(270deg);
+}
   
