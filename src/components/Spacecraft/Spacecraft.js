@@ -1,8 +1,19 @@
 import React from 'react';
-import 'aframe';
+import AFRAME from 'aframe';
 import 'aframe-particle-system-component';
 import {Entity, Scene} from 'aframe-react';
 import TeleportMenu from '../TeleportMenu/TeleportMenu';
+import {matrix, subset, index, multiply} from 'mathjs';
+
+var globalRotX = 0;
+var globalRotY = 0;
+
+AFRAME.registerComponent('rotation-logger-spacecraft', {
+  tick: function () {
+    globalRotX = this.el.object3D.rotation.x
+    globalRotY = this.el.object3D.rotation.y
+  }
+});
 
 const BACKGROUND = require("../../assets/images/Space.jpg");
 const SPACECRAFT = require('../../assets/models/Spacecraft.glb');
@@ -23,13 +34,94 @@ class Spacecraft extends React.Component {
       rotx: 0,
       roty: 90,
       rotz: 0,
-      controllsEnabled: false,
+      mobile: true,
     }
     this.teleport = this.handleTeleport.bind(this);
+    this.upButton = this.handleUpButton.bind(this);
+    this.downButton = this.handleDownButton.bind(this);
+    this.leftButton = this.handleLeftButton.bind(this);
+    this.rightButton = this.handleRightButton.bind(this);
   }
 
   handleTeleport(coords){
     this.setState({cameraX: coords.x, cameraY: coords.y, cameraZ: coords.z,});
+  }
+
+  handleUpButton() {
+    let theta = globalRotX + Math.PI / 2
+    let fi = globalRotY
+    let r = 0.1
+    let z = Math.sin(theta) * Math.cos(fi) * r
+    let x = Math.sin(theta) * Math.sin(fi) * r
+    let y = Math.cos(theta) * r
+
+    var newX = this.state.cameraX - x;
+    var newY = this.state.cameraY - y;
+    var newZ = this.state.cameraZ - z;
+
+    this.setState({cameraX: newX, cameraY: newY, cameraZ: newZ,})
+  }
+  handleDownButton() {
+    let theta = globalRotX + Math.PI / 2
+    let fi = globalRotY
+    let r = 0.1
+    let z = Math.sin(theta) * Math.cos(fi) * r
+    let x = Math.sin(theta) * Math.sin(fi) * r
+    let y = Math.cos(theta) * r
+
+    var newX = this.state.cameraX + x;
+    var newY = this.state.cameraY + y;
+    var newZ = this.state.cameraZ + z;
+
+    this.setState({cameraX: newX, cameraY: newY, cameraZ: newZ,})
+  }
+  handleLeftButton() {
+    let theta = globalRotX + Math.PI / 2
+    let fi = globalRotY
+    let r = 0.1
+    let z = Math.sin(theta) * Math.cos(fi) * r
+    let x = Math.sin(theta) * Math.sin(fi) * r
+    let y = Math.cos(theta) * r
+
+    var t = 3 * Math.PI / 2
+    var matrixTran= matrix([[Math.cos(t), 0, Math.sin(t)], [0,1,0], [-1 * Math.sin(t), 0, Math.cos(t)]]);
+    var matrixForward = matrix([[x],[y],[z]]);
+
+    var matrixResult = multiply(matrixTran, matrixForward);
+
+    var matx = subset(matrixResult, index(0,0));
+    var maty = subset(matrixResult, index(1,0));
+    var matz = subset(matrixResult, index(2,0));
+
+    var newX = this.state.cameraX + matx;
+    var newY = this.state.cameraY + maty;
+    var newZ = this.state.cameraZ + matz;
+
+    this.setState({cameraX: newX, cameraY: newY, cameraZ: newZ,})
+  }
+  handleRightButton() {
+    let theta = globalRotX + Math.PI / 2
+    let fi = globalRotY
+    let r = 0.1
+    let z = Math.sin(theta) * Math.cos(fi) * r
+    let x = Math.sin(theta) * Math.sin(fi) * r
+    let y = Math.cos(theta) * r
+
+    var t = 3 * Math.PI / 2
+    var matrixTran= matrix([[Math.cos(t), 0, Math.sin(t)], [0,1,0], [-1 * Math.sin(t), 0, Math.cos(t)]]);
+    var matrixForward = matrix([[x],[y],[z]]);
+
+    var matrixResult = multiply(matrixTran, matrixForward);
+
+    var matx = subset(matrixResult, index(0,0));
+    var maty = subset(matrixResult, index(1,0));
+    var matz = subset(matrixResult, index(2,0));
+
+    var newX = this.state.cameraX - matx;
+    var newY = this.state.cameraY - maty;
+    var newZ = this.state.cameraZ - matz;
+
+    this.setState({cameraX: newX, cameraY: newY, cameraZ: newZ,})
   }
 
   render () {
@@ -37,7 +129,7 @@ class Spacecraft extends React.Component {
       <div className = "Experience">
         <div className="HUDElement"><img className="BackButton" src={BACK_BUTTON} alt={BACK_BUTTON2} onClick={this.props.action}></img></div>
         <Scene vr-mode-ui="enabled: false">
-          <a-camera 
+          <a-camera rotation-logger-spacecraft
             wasd-controls-enabled={this.state.controlsEnabled} 
             position={`${this.state.cameraX} ${this.state.cameraY} ${this.state.cameraZ}`}
             rotation={{x: this.state.rotx, y: this.state.roty, z: this.state.rotz,}}
@@ -51,7 +143,7 @@ class Spacecraft extends React.Component {
           <Entity primitive='a-sky' src={BACKGROUND} rotation="25 -100 0"/>
           <Entity light={{type: 'point'}} position="0 5 0" />
         </Scene>
-        <TeleportMenu scene="SPACECRAFT" handleTeleport={this.teleport} />
+        <TeleportMenu scene="SPACECRAFT" handleTeleport={this.teleport} handleUpButton={this.upButton} handleDownButton={this.downButton} handleLeftButton={this.leftButton} handleRightButton={this.rightButton}/>
       </div>
     );
   }

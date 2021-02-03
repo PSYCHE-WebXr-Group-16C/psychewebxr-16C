@@ -21,6 +21,7 @@ import {
     MESSAGE_8,
     MESSAGE_9,
 } from '../../constants/constants';
+import NavigationButton from './NavigationButton';
 import TextBox from './TextBox';
 
 const MENUBUTTON = require("../../assets/images/MenuButton.svg");
@@ -34,8 +35,18 @@ class TeleportMenu extends React.Component{
             isEnabled: false,
             scene: this.props.scene,
             text: DEFAULT_CONTROLLER,
+            controls: this.props.controls,
         }
 
+    }
+
+    buildMobileControls() {
+        if (this.state.text === DEFAULT_CONTROLLER) {
+            return (<NavigationButton handleUpButton={this.props.handleUpButton} handleDownButton={this.props.handleDownButton} handleLeftButton={this.props.handleLeftButton} handleRightButton={this.props.handleRightButton}></NavigationButton>)
+        }
+        else {
+            return null
+        }
     }
 
     handleMenu(){
@@ -47,7 +58,9 @@ class TeleportMenu extends React.Component{
     }
 
     buildTextBox() {
-        if (this.state.text === DEFAULT_CONTROLLER) {return null}
+        if (this.state.text === DEFAULT_CONTROLLER) {
+            return null
+        }
         else {
             return (<TextBox message = {this.state.text}></TextBox>)
         }
@@ -88,6 +101,7 @@ class TeleportMenu extends React.Component{
                     }
                 </div>
                 {this.buildTextBox()}
+                {this.buildMobileControls()}
             </div>
         )
     }
