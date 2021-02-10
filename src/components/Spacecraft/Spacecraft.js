@@ -1,40 +1,27 @@
 import React from 'react';
-import AFRAME from 'aframe';
+import SceneComponent from '../SceneComponent/SceneComponent';
 import 'aframe-particle-system-component';
 import {Entity, Scene} from 'aframe-react';
 import TeleportMenu from '../TeleportMenu/TeleportMenu';
-import {matrix, subset, index, multiply} from 'mathjs';
-
-var globalRotX = 0;
-var globalRotY = 0;
-
-AFRAME.registerComponent('rotation-logger-spacecraft', {
-  tick: function () {
-    globalRotX = this.el.object3D.rotation.x
-    globalRotY = this.el.object3D.rotation.y
-  }
-});
 
 const BACKGROUND = require("../../assets/images/Space.jpg");
 const SPACECRAFT = require('../../assets/models/Spacecraft.glb');
 const BACK_BUTTON = require('../../assets/images/BackButton.png');
 const BACK_BUTTON2 = require('../../assets/images/BackButton2.png');
 
-class Spacecraft extends React.Component {
+class Spacecraft extends SceneComponent {
   constructor(){
     super();
-    this.state={
-      controlsEnabled: true,
+    this.state = {
       spacecraftX: 0.189, // spacecraft X Position
       spacecraftY: .760, // spacecraft Y Position
       spacecraftZ: -1.405, // spacecraft Z Position
-      cameraX: -4.328,
-      cameraY: 1.859,
-      cameraZ: 1.069,
-      rotx: 0,
-      roty: 90,
-      rotz: 0,
-      mobile: true,
+      cameraX: 0.08, //User Camera X Position
+      cameraY: 1.7, //User Camera Y Position
+      cameraZ: 0.75, //User Camera Z Position
+      rotx: 0, //User Camera Rotation-X Position
+      roty: 0, //User Camera Rotation-Y Position
+      rotz: 0, //User Camera Rotation-Z Position
     }
     this.teleport = this.handleTeleport.bind(this);
     this.upButton = this.handleUpButton.bind(this);
@@ -43,98 +30,18 @@ class Spacecraft extends React.Component {
     this.rightButton = this.handleRightButton.bind(this);
   }
 
-  handleTeleport(coords){
-    this.setState({cameraX: coords.x, cameraY: coords.y, cameraZ: coords.z,});
-  }
-
-  handleUpButton() {
-    let theta = globalRotX + Math.PI / 2
-    let fi = globalRotY
-    let r = 0.1
-    let z = Math.sin(theta) * Math.cos(fi) * r
-    let x = Math.sin(theta) * Math.sin(fi) * r
-    let y = Math.cos(theta) * r
-
-    var newX = this.state.cameraX - x;
-    var newY = this.state.cameraY - y;
-    var newZ = this.state.cameraZ - z;
-
-    this.setState({cameraX: newX, cameraY: newY, cameraZ: newZ,})
-  }
-  handleDownButton() {
-    let theta = globalRotX + Math.PI / 2
-    let fi = globalRotY
-    let r = 0.1
-    let z = Math.sin(theta) * Math.cos(fi) * r
-    let x = Math.sin(theta) * Math.sin(fi) * r
-    let y = Math.cos(theta) * r
-
-    var newX = this.state.cameraX + x;
-    var newY = this.state.cameraY + y;
-    var newZ = this.state.cameraZ + z;
-
-    this.setState({cameraX: newX, cameraY: newY, cameraZ: newZ,})
-  }
-  handleLeftButton() {
-    let theta = globalRotX + Math.PI / 2
-    let fi = globalRotY
-    let r = 0.1
-    let z = Math.sin(theta) * Math.cos(fi) * r
-    let x = Math.sin(theta) * Math.sin(fi) * r
-    let y = Math.cos(theta) * r
-
-    var t = 3 * Math.PI / 2
-    var matrixTran= matrix([[Math.cos(t), 0, Math.sin(t)], [0,1,0], [-1 * Math.sin(t), 0, Math.cos(t)]]);
-    var matrixForward = matrix([[x],[y],[z]]);
-
-    var matrixResult = multiply(matrixTran, matrixForward);
-
-    var matx = subset(matrixResult, index(0,0));
-    var maty = subset(matrixResult, index(1,0));
-    var matz = subset(matrixResult, index(2,0));
-
-    var newX = this.state.cameraX + matx;
-    var newY = this.state.cameraY + maty;
-    var newZ = this.state.cameraZ + matz;
-
-    this.setState({cameraX: newX, cameraY: newY, cameraZ: newZ,})
-  }
-  handleRightButton() {
-    let theta = globalRotX + Math.PI / 2
-    let fi = globalRotY
-    let r = 0.1
-    let z = Math.sin(theta) * Math.cos(fi) * r
-    let x = Math.sin(theta) * Math.sin(fi) * r
-    let y = Math.cos(theta) * r
-
-    var t = 3 * Math.PI / 2
-    var matrixTran= matrix([[Math.cos(t), 0, Math.sin(t)], [0,1,0], [-1 * Math.sin(t), 0, Math.cos(t)]]);
-    var matrixForward = matrix([[x],[y],[z]]);
-
-    var matrixResult = multiply(matrixTran, matrixForward);
-
-    var matx = subset(matrixResult, index(0,0));
-    var maty = subset(matrixResult, index(1,0));
-    var matz = subset(matrixResult, index(2,0));
-
-    var newX = this.state.cameraX - matx;
-    var newY = this.state.cameraY - maty;
-    var newZ = this.state.cameraZ - matz;
-
-    this.setState({cameraX: newX, cameraY: newY, cameraZ: newZ,})
-  }
-
   render () {
     return (
       <div className = "Experience">
         <div className="HUDElement"><img className="BackButton" src={BACK_BUTTON} alt={BACK_BUTTON2} onClick={this.props.action}></img></div>
         <Scene vr-mode-ui="enabled: false">
-          <a-camera rotation-logger-spacecraft
-            wasd-controls-enabled={this.state.controlsEnabled} 
-            position={`${this.state.cameraX} ${this.state.cameraY} ${this.state.cameraZ}`}
-            rotation={{x: this.state.rotx, y: this.state.roty, z: this.state.rotz,}}
-          >
-          </a-camera>
+          <a-entity rotation={`${this.state.rotx} ${this.state.roty} ${this.state.rotz}`}>
+            <a-camera rotation-logger-spacecraft
+              wasd-controls-enabled={this.state.controlsEnabled} 
+              position={`${this.state.cameraX} ${this.state.cameraY} ${this.state.cameraZ}`}
+            >
+            </a-camera>
+          </a-entity>
           <Entity gltf-model={SPACECRAFT} 
             scale="0.01 0.01 0.01" 
             rotation="90 0 180"

@@ -23,7 +23,6 @@ import {
 } from '../../constants/constants';
 import NavigationButton from './NavigationButton';
 import TextBox from './TextBox';
-
 const MENUBUTTON = require("../../assets/images/MenuButton.svg");
 
 class TeleportMenu extends React.Component{
@@ -31,7 +30,6 @@ class TeleportMenu extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-
             isEnabled: false,
             scene: this.props.scene,
             text: DEFAULT_CONTROLLER,
