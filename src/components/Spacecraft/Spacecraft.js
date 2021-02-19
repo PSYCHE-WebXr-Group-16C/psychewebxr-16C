@@ -28,6 +28,8 @@ class Spacecraft extends SceneComponent {
     this.downButton = this.handleDownButton.bind(this);
     this.leftButton = this.handleLeftButton.bind(this);
     this.rightButton = this.handleRightButton.bind(this);
+    this.hold = this.toggleHold.bind(this);
+    this.release = this.toggleRelease.bind(this);
   }
 
   render () {
@@ -50,7 +52,7 @@ class Spacecraft extends SceneComponent {
           <Entity primitive='a-sky' src={BACKGROUND} rotation="25 -100 0"/>
           <Entity light={{type: 'point'}} position="0 5 0" />
         </Scene>
-        <TeleportMenu scene="SPACECRAFT" handleTeleport={this.teleport} handleUpButton={this.upButton} handleDownButton={this.downButton} handleLeftButton={this.leftButton} handleRightButton={this.rightButton}/>
+        <TeleportMenu scene="SPACECRAFT" toggleHold={this.hold} toggleRelease={this.release} handleTeleport={this.teleport} handleUpButton={this.upButton} handleDownButton={this.downButton} handleLeftButton={this.leftButton} handleRightButton={this.rightButton}/>
       </div>
     );
   }
