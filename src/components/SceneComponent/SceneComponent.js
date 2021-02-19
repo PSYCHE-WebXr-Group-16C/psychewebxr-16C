@@ -4,6 +4,7 @@ import AFRAME from 'aframe';
 
 var globalRotX = 0;
 var globalRotY = 0;
+var toggle = 0;
 
 AFRAME.registerComponent('rotation-logger-asteroid', {
   tick: function () {
@@ -23,12 +24,44 @@ AFRAME.registerComponent('rotation-logger-spacecraft', {
 /* This is the superclass of each scene component. The purpose of this class is to prevent code duplication */
 export default class SceneComponent extends React.Component {
 
+
     constructor(){
         super();
         this.state = {
             controlsEnabled: true,
             mobile: true,
         }
+
+        this.upButton = this.handleUpButton.bind(this);
+        this.downButton = this.handleDownButton.bind(this);
+        this.leftButton = this.handleLeftButton.bind(this);
+        this.rightButton = this.handleRightButton.bind(this);
+    }
+
+    toggleHold(selectedFunc) {
+      var toggleFunc;
+      if (selectedFunc === "up") {
+        toggleFunc = this.upButton;
+      }
+      else if (selectedFunc == "down") {
+        toggleFunc = this.downButton;
+      }
+      else if (selectedFunc == "right") {
+        toggleFunc = this.rightButton;
+      }
+      else {
+        toggleFunc = this.leftButton;
+      }
+      if(toggle===0){
+        toggle=setInterval(toggleFunc,100);
+      }
+    }
+
+    toggleRelease() {
+      if(toggle!==0){
+        clearInterval(toggle);
+        toggle=0;
+      }
     }
 
     handleTeleport(coords){
@@ -46,7 +79,7 @@ export default class SceneComponent extends React.Component {
       handleUpButton() {
         let theta = globalRotX + Math.PI / 2
         let fi = globalRotY
-        let r = 0.1
+        let r = 0.03
         let z = Math.sin(theta) * Math.cos(fi) * r
         let x = Math.sin(theta) * Math.sin(fi) * r
         let y = Math.cos(theta) * r
@@ -61,7 +94,7 @@ export default class SceneComponent extends React.Component {
       handleDownButton() {
         let theta = globalRotX + Math.PI / 2
         let fi = globalRotY
-        let r = 0.1
+        let r = 0.03
         let z = Math.sin(theta) * Math.cos(fi) * r
         let x = Math.sin(theta) * Math.sin(fi) * r
         let y = Math.cos(theta) * r
@@ -76,7 +109,7 @@ export default class SceneComponent extends React.Component {
       handleLeftButton() {
         let theta = globalRotX + Math.PI / 2
         let fi = globalRotY
-        let r = 0.1
+        let r = 0.03
         let z = Math.sin(theta) * Math.cos(fi) * r
         let x = Math.sin(theta) * Math.sin(fi) * r
         let y = Math.cos(theta) * r
@@ -101,7 +134,7 @@ export default class SceneComponent extends React.Component {
       handleRightButton() {
         let theta = globalRotX + Math.PI / 2
         let fi = globalRotY
-        let r = 0.1
+        let r = 0.03
         let z = Math.sin(theta) * Math.cos(fi) * r
         let x = Math.sin(theta) * Math.sin(fi) * r
         let y = Math.cos(theta) * r
