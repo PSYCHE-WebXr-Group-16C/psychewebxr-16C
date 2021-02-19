@@ -42,6 +42,8 @@ class Asteroid extends SceneComponent {
     this.downButton = this.handleDownButton.bind(this);
     this.leftButton = this.handleLeftButton.bind(this);
     this.rightButton = this.handleRightButton.bind(this);
+    this.hold = this.toggleHold.bind(this);
+    this.release = this.toggleRelease.bind(this);
 
   }
 
@@ -65,7 +67,7 @@ class Asteroid extends SceneComponent {
             position={`${this.state.asteroidX} ${this.state.asteroidY} ${this.state.asteroidZ}`}
           ></Entity>
         </Scene>
-        <TeleportMenu scene="ASTEROID" handleTeleport={this.teleport} handleUpButton={this.upButton} handleDownButton={this.downButton} handleLeftButton={this.leftButton} handleRightButton={this.rightButton}/>
+        <TeleportMenu scene="ASTEROID" toggleHold={this.hold} toggleRelease={this.release} handleTeleport={this.teleport} handleUpButton={this.upButton} handleDownButton={this.downButton} handleLeftButton={this.leftButton} handleRightButton={this.rightButton}/>
       </div>
     );
   }

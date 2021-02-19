@@ -15,20 +15,20 @@ class NavigationButton extends React.Component {
         return (
             <div className="Nav-Buttons-Grid">
                 <div className = "Nav-Container">
-                    <button className = "Nav-Button" onClick={ () => {this.props.handleUpButton()} } >
+                    <button className = "Nav-Button" onTouchStart={ () => {this.props.toggleHold("up")}} onTouchEnd={ () => {this.props.toggleRelease()}} >
                         <img className = "Nav-Button-Icon-Up" src = {BACK_BUTTON} alt = "Up"/>
                     </button>
                 </div>
                 <div className = "Nav-Container">
-                    <button className = "Nav-Button" onClick={ () => {this.props.handleLeftButton()} } >
+                    <button className = "Nav-Button" onTouchStart={ () => {this.props.toggleHold("left")}} onTouchEnd={ () => {this.props.toggleRelease()} } >
                         <img className = "Nav-Button-Icon-Left" src = {BACK_BUTTON} alt = "Left"/>
                     </button>
-                    <button className = "Nav-Button" onClick={ () => {this.props.handleRightButton()} } >
+                    <button className = "Nav-Button" onTouchStart={ () => {this.props.toggleHold("right")}} onTouchEnd={ () => {this.props.toggleRelease()}} >
                         <img className = "Nav-Button-Icon-Right" src = {BACK_BUTTON} alt = "Right"/>
                     </button>
                 </div>
                 <div className = "Nav-Container">
-                    <button className = "Nav-Button" onClick={ () => {this.props.handleDownButton()} } >
+                    <button className = "Nav-Button" onTouchStart={ () => {this.props.toggleHold("down")}} onTouchEnd={ () => {this.props.toggleRelease()}} >
                     <img className = "Nav-Button-Icon-Down" src = {BACK_BUTTON} alt = "Down"/>
                     </button>
                 </div>

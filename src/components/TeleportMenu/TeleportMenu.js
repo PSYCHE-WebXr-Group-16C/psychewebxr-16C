@@ -40,7 +40,7 @@ class TeleportMenu extends React.Component{
 
     buildMobileControls() {
         if (this.state.text === DEFAULT_CONTROLLER) {
-            return (<NavigationButton handleUpButton={this.props.handleUpButton} handleDownButton={this.props.handleDownButton} handleLeftButton={this.props.handleLeftButton} handleRightButton={this.props.handleRightButton}></NavigationButton>)
+            return (<NavigationButton toggleHold={this.props.toggleHold} toggleRelease={this.props.toggleRelease} handleUpButton={this.props.handleUpButton} handleDownButton={this.props.handleDownButton} handleLeftButton={this.props.handleLeftButton} handleRightButton={this.props.handleRightButton}></NavigationButton>)
         }
         else {
             return null
