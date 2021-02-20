@@ -2,10 +2,10 @@ import React from 'react';
 import '../../constants/Menu.css'
 const BACK_BUTTON = require('../../assets/images/BackButton.png');
 const BACK_BUTTON2 = require('../../assets/images/BackButton2.png');
-const Zack = require('../../assets/images/Zack.jpg');
-const Ryan = require('../../assets/images/Ryan.jpg');
-const Yu = require('../../assets/images/Yu.jpg');
-const Liangbin = require('../../assets/images/Liangbin.jpg');
+const Zack = require('../../assets/images/Zack.png');
+const Ryan = require('../../assets/images/Ryan.png');
+const Yu = require('../../assets/images/Yu.png');
+const Liangbin = require('../../assets/images/Liangbin.png');
 
 const IMG_ERROR = "Picture Not Found"
 
@@ -19,15 +19,16 @@ class AboutTeam extends React.Component {
                 <div className="AboutTeamPanel">
                     
                 <div style = {{color:"white", display: 'flex', justifyContent: 'center'}}>
-                    <h1>Meet the team !</h1>
+                    <h2>Meet the team !</h2>
                 </div>
 
                 <div id = "team">
                 <div class = "person">
                     <div class = "personImg">
-                        <img src={Zack} alt={IMG_ERROR} height = "200" width = "200"></img>
+                        <img src={Zack} alt={IMG_ERROR}></img>
                     </div>
-                            <p><h2>Zachary Cooper</h2><br/>
+                            <p><h3>Zachary Cooper</h3><br/>
+                            - Arizona State Univerisity<br/>
                             - Computer Science, Senior<br/>
                             - Product Engineering Intern at Equinix<br/>
                             &nbsp;&nbsp;Specializes in Full Stack Web Development<br/>
@@ -35,9 +36,10 @@ class AboutTeam extends React.Component {
                 </div>
                 <div class = "person">
                     <div class = "personImg">
-                        <img src={Ryan} alt={IMG_ERROR} height = "200" width = "200"></img>
+                        <img src={Ryan} alt={IMG_ERROR}></img>
                     </div>
-                            <p><h2>Ryan Tucker</h2><br/>
+                            <p><h3>Ryan Tucker</h3><br/>
+                            - Arizona State Univerisity<br/>
                             - Computer Science, Senior<br/>
                             - Intern at the Pacific Northwest National Laboratory<br/>
                             &nbsp;&nbsp;(Buildings and Connected Systems Group)<br/>
@@ -45,9 +47,10 @@ class AboutTeam extends React.Component {
                 </div>
                 <div class = "person">
                     <div class = "personImg">
-                        <img src={Yu} alt={IMG_ERROR} height = "200" width = "200"></img>
+                        <img src={Yu} alt={IMG_ERROR}></img>
                     </div>
-                            <p><h2>Yu Fu</h2><br/>
+                            <p><h3>Yu Fu</h3><br/>
+                            - Arizona State Univerisity<br/>
                             - Computer Science, Senior<br/>
                             - Machine learning project with University of<br/>
                             &nbsp;&nbsp;Southern California <br/>
@@ -55,9 +58,10 @@ class AboutTeam extends React.Component {
                 </div>
                 <div class = "person">
                     <div class = "personImg">
-                        <img src={Liangbin} alt={IMG_ERROR} height = "200" width = "200"></img>
+                        <img src={Liangbin} alt={IMG_ERROR}></img>
                     </div>
-                            <p><h2>Liangbin Gao</h2><br/>
+                            <p><h3>Liangbin Gao</h3><br/>
+                            - Arizona State Univerisity<br/>
                             - Computer Science, Senior<br/>
                             - Cancer prediction project with Dr. Victor Adamchik<br/>
                            <br/>
