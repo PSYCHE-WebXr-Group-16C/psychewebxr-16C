@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../constants/Menu.css'
+import './AboutTeam.css'
 const BACK_BUTTON = require('../../assets/images/BackButton.png');
 const BACK_BUTTON2 = require('../../assets/images/BackButton2.png');
 const Zack = require('../../assets/images/Zack.png');
@@ -17,7 +17,7 @@ class AboutTeam extends React.Component {
             <div className="AboutPage">
                 <div className="HUDElement"><img className="BackButton" src={BACK_BUTTON2} alt={BACK_BUTTON} onClick={this.props.action}></img></div>
                 <div className="AboutTeamPanel">
-                    
+
                 <div style = {{color:"white", display: 'flex', justifyContent: 'center'}}>
                     <h2>Meet the team !</h2>
                 </div>

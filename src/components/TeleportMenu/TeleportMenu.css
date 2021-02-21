@@ -1,0 +1,43 @@
+.Teleport-Menu {
+  position: absolute;
+  z-index: 2;
+  top: 5px;
+  right: 5px;
+  width: 90px;
+}
+
+.Teleport-Menu-icon {
+  opacity: .75;
+}
+
+.Teleport-Menu-icon:hover {
+  opacity: 1.0;
+}
+
+.Teleport-Menu button{
+  float: right;
+  width: 60px;
+  height: 60px;
+  border: none;
+  background: white;
+  border-radius: 10%;
+  opacity: .5;
+  cursor: pointer;
+  color: black;
+  margin-bottom: 5px;
+  outline: none;
+}
+
+.Teleport-Sub-Menu {
+  display: block;
+  border-radius: 5%;
+}
+
+.Expand {
+  animation: open 0.2s ease-in-out;
+  display: block;
+}
+
+.Collapse {
+  display: none;
+}

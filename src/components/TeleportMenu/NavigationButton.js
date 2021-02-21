@@ -1,4 +1,5 @@
 import React from 'react';
+import './NavigationButton.css'
 
 const BACK_BUTTON = require('../../assets/images/BackButton2.png');
 
@@ -7,7 +8,7 @@ class NavigationButton extends React.Component {
         super(props);
         this.state = {
             scene: this.props.scene,
-            
+
         }
     }
 

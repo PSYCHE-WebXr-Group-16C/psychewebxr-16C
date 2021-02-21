@@ -2,7 +2,7 @@ import React from 'react';
 import {MENU_MODE, SPACECRAFT_MODE, ASTEROID_MODE, ABOUT_PSYCHE_MODE, ABOUT_TEAM_MODE} from '../constants/constants';
 import Spacecraft from './Spacecraft/Spacecraft';
 import Asteriod from './Asteroid/Asteriod';
-import '../constants/Menu.css';
+import './SceneSelector.css';
 import Badge from '../assets/images/Psyche-Badge-Mono.png';
 import {printDebug} from '../DebugTools';
 import AboutPsyche from './About/AboutPsyche';
@@ -37,7 +37,7 @@ class SceneSelector extends React.Component {
         }
     }
 
-    componentDidMount() { 
+    componentDidMount() {
         this.checkMobileMode();
         printDebug("Launching App in mobile mode: " + this.state.mobileMode);
     }
@@ -89,7 +89,7 @@ class SceneSelector extends React.Component {
                 </div>
                 <div className="githubWrapper" onClick={() => {window.location.href="https://github.com/PSYCHE-WebXr-Group-16C/psychewebxr";}}><i className="fa fa-github"></i></div>
             </div>
-            
+
         );
     }
 

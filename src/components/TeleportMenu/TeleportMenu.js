@@ -6,7 +6,7 @@ import {
     SPACECRAFT_4,
     SPACECRAFT_5,
     ASTEROID_1,
-    ASTEROID_2, 
+    ASTEROID_2,
     ASTEROID_3,
     ASTEROID_4,
     ASTEROID_5,
@@ -23,6 +23,7 @@ import {
 } from '../../constants/constants';
 import NavigationButton from './NavigationButton';
 import TextBox from './TextBox';
+import './TeleportMenu.css'
 const MENUBUTTON = require("../../assets/images/MenuButton.svg");
 
 class TeleportMenu extends React.Component{
@@ -66,7 +67,7 @@ class TeleportMenu extends React.Component{
 
     render(){
         var toggleValue = this.state.isEnabled ? "Expand":"Collapse";
-        
+
         return (
             <div>
                 <div className="Teleport-Menu">
@@ -74,7 +75,7 @@ class TeleportMenu extends React.Component{
                         <img className = "Teleport-Menu-icon" src = {MENUBUTTON} alt= "Menu"></img>
                     </button>
                     {
-                        this.state.scene === "ASTEROID" ? 
+                        this.state.scene === "ASTEROID" ?
                         (
                             /* Asteroid Menu */
                             <div className = {"Teleport-Sub-Menu " + toggleValue}>
@@ -95,7 +96,7 @@ class TeleportMenu extends React.Component{
                                 <button onClick={ () => {this.props.handleTeleport(SPACECRAFT_4); this.handleMessage(MESSAGE_4); this.handleMenu();} } >Magnetometer</button>
                                 <button onClick={ () => {this.props.handleTeleport(SPACECRAFT_5); this.handleMessage(MESSAGE_2); this.handleMenu();} } >Imager</button>
                             </div>
-                        ) 
+                        )
                     }
                 </div>
                 {this.buildTextBox()}

@@ -1,0 +1,49 @@
+.TextBox {
+  position: absolute;
+  z-index: 2;
+  bottom: 1vh;
+  right: 5%;
+  width: 90%;
+}
+.TextBoxContent {
+  display: block;
+  background-color: #1a1a1a;
+  color: white;
+  opacity: .8;
+  width: 100%;
+  border-radius: 5%;
+}
+.TextExpand {
+  display: block;
+  animation: textOpen 0.2s ease-in-out;
+}
+
+.TextCollapse {
+  display: none;
+}
+
+.Expand {
+  animation: open 0.2s ease-in-out;
+  display: block;
+}
+
+.Collapse {
+  display: none;
+}
+
+.TextBoxCollapsible {
+  background-color:black;
+  cursor: pointer;
+  padding: 18px;
+  width: 30%;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  opacity: .75;
+  border-radius: 5%;
+  color: white;
+}
+
+.TextBoxCollapsible:hover {
+  opacity: .90;
+}

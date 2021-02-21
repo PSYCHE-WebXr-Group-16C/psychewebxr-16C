@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../constants/Menu.css'
+import './TextBox.css'
 
 class TextBox extends React.Component {
 
