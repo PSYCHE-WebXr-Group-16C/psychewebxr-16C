@@ -17,7 +17,6 @@ var globalRotY = 0;
 //     globalRotY = this.el.object3D.rotation.y
 //   }
 // });
-
 const BACKGROUND = require("../../assets/images/Space.jpg")
 const ASTEROID = require('../../assets/models/TexturedAsteroid.glb');
 const BACK_BUTTON = require('../../assets/images/BackButton.png');
