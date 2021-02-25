@@ -3,6 +3,7 @@ import SceneComponent from '../SceneComponent/SceneComponent';
 import 'aframe-particle-system-component';
 import {Entity, Scene} from 'aframe-react';
 import TeleportMenu from '../TeleportMenu/TeleportMenu';
+import './Spacecraft.css';
 
 const BACKGROUND = require("../../assets/images/Space.jpg");
 const SPACECRAFT = require('../../assets/models/Spacecraft.glb');
@@ -39,13 +40,13 @@ class Spacecraft extends SceneComponent {
         <Scene vr-mode-ui="enabled: false">
           <a-entity rotation={`${this.state.rotx} ${this.state.roty} ${this.state.rotz}`}>
             <a-camera rotation-logger-spacecraft
-              wasd-controls-enabled={this.state.controlsEnabled} 
+              wasd-controls-enabled={this.state.controlsEnabled}
               position={`${this.state.cameraX} ${this.state.cameraY} ${this.state.cameraZ}`}
             >
             </a-camera>
           </a-entity>
-          <Entity gltf-model={SPACECRAFT} 
-            scale="0.01 0.01 0.01" 
+          <Entity gltf-model={SPACECRAFT}
+            scale="0.01 0.01 0.01"
             rotation="90 0 180"
             position={`${this.state.spacecraftX} ${this.state.spacecraftY} ${this.state.spacecraftZ}`}>
           </Entity>

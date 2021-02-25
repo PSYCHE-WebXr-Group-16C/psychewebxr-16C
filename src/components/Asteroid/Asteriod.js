@@ -2,7 +2,7 @@ import React from 'react';
 import AFRAME from 'aframe';
 import 'aframe-particle-system-component';
 import {Entity, Scene} from 'aframe-react';
-import '../../constants/Menu.css'
+import './Asteriod.css'
 import TeleportMenu from '../TeleportMenu/TeleportMenu';
 import {matrix, subset, index, multiply, cross} from 'mathjs';
 import SceneComponent from '../SceneComponent/SceneComponent';
@@ -54,14 +54,14 @@ class Asteroid extends SceneComponent {
         <Scene vr-mode-ui="enabled: false">
           <a-entity rotation={`${this.state.rotx} ${this.state.roty} ${this.state.rotz}`}>
             <a-camera rotation-logger-asteroid
-              wasd-controls-enabled={this.state.controlsEnabled} 
+              wasd-controls-enabled={this.state.controlsEnabled}
               position={`${this.state.cameraX} ${this.state.cameraY} ${this.state.cameraZ}`}
             >
             </a-camera>
           </a-entity>
           <Entity primitive='a-sky' src={BACKGROUND} rotation="0 -100 0"/>
           <Entity light={{type: 'point'}} position="0 10 0" />
-          <Entity gltf-model={ASTEROID} 
+          <Entity gltf-model={ASTEROID}
             scale="1 1 1"
             rotation="0 -8 0"
             position={`${this.state.asteroidX} ${this.state.asteroidY} ${this.state.asteroidZ}`}

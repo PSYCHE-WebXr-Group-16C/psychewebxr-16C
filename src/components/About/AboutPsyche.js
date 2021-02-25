@@ -1,6 +1,6 @@
 import React from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import '../../constants/Menu.css'
+import './AboutPsyche.css'
 const BACK_BUTTON = require('../../assets/images/BackButton.png');
 const BACK_BUTTON2 = require('../../assets/images/BackButton2.png');
 const ORBIT = require('../../assets/images/orbits-v2.svg');
@@ -25,7 +25,7 @@ class AboutPsyche extends React.Component {
                             <Tab>Orbit</Tab>
                             <Tab>Timeline</Tab>
                         </TabList>
-            
+
                         <TabPanel>
                             <h2>About the Psyche Mission:</h2>
                             <p>Psyche is both the name of an asteroid orbiting the Sun between Mars and Jupiter — and the name of a NASA space mission to visit that asteroid, led by Arizona State University. The mission was chosen by NASA on January 4, 2017 as one of two missions for the agency’s Discovery Program, a series of relatively low-cost missions to solar system targets.</p>

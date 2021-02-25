@@ -1,0 +1,47 @@
+.MenuButton {
+  background: rgba(48, 33, 68, 1);
+  border: none;
+  color: white;
+  padding: 2vh 2vw 2vh 2vw;
+  min-width: 150px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 2vw;
+  border-width: .1em;
+  border-style: inset;
+  border-color: rgba(165, 63, 91, 1);
+  border-radius: 1vw;
+  font-family: Helvetica;
+  font-weight: bold;
+}
+
+.MenuButton:hover{
+  opacity: .9;
+}
+
+.photo {
+  height: 70px;
+  width: 70px;
+  max-width: 100px;
+  max-height: 100px;
+}
+.githubWrapper {
+  font-size: 70px;
+  color: black;
+}
+
+.githubWrapper:hover {
+  cursor: pointer;
+  color: rgba(48, 33, 68, 1);
+}
+.Title {
+  text-align: center;
+  padding: 30px;
+  margin-bottom: 20px;
+}
+.Row {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}

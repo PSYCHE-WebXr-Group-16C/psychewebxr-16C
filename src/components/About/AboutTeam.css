@@ -1,0 +1,78 @@
+.AboutPage {
+  margin:10px;
+  padding:10px;
+}
+
+.HUDElement{
+  position: absolute;
+  z-index: 2;
+}
+
+.BackButton{
+  width: 50px;
+  height: 50px;
+  top: 10px;
+  left: 10px;
+  display: block;
+  position: relative;
+}
+
+.BackButton:hover{
+  opacity: .9;
+}
+
+.AboutTeamPanel {
+  margin-top: 10px;
+}
+
+.person{
+  margin: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*support cell phone*/
+@media (min-width: 100px)
+{
+  .person p{margin-left: 7%;
+    font-size: 5px;}
+  .personImg img{width:70%;
+    height:70%;}
+}
+@media (min-width: 360px)
+{
+  .person p{margin-left: 12%;
+    font-size: 10px;}
+  .personImg img{width:70%;
+    height:70%;}
+}
+/*support ipad size*/
+@media (min-width: 768px)
+{
+  .person p{margin-left: 10%;
+    font-size: 21px;}
+  .personImg img{width:70%;
+    height:70%;}
+}
+/*support pc size*/
+@media (min-width: 1200px)
+{
+  .person p{  margin-right: 4%;
+    margin-left: 8%;
+    font-size: 23px;}
+  .personImg img{width:60%;
+    height:60%;}
+}
+
+.personImg img{
+
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 10%;
+
+}
+
+.person:nth-child(2n){
+  flex-direction:row-reverse
+}
