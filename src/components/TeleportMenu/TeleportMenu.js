@@ -40,7 +40,9 @@ class TeleportMenu extends React.Component{
     }
 
     buildMobileControls() {
-        if (this.state.text === DEFAULT_CONTROLLER) {
+        var touchEnabled = ('ontouchstart' in document.documentElement);
+        
+        if (this.state.text === DEFAULT_CONTROLLER && touchEnabled === true) {
             return (<NavigationButton toggleHold={this.props.toggleHold} toggleRelease={this.props.toggleRelease} handleUpButton={this.props.handleUpButton} handleDownButton={this.props.handleDownButton} handleLeftButton={this.props.handleLeftButton} handleRightButton={this.props.handleRightButton}></NavigationButton>)
         }
         else {
