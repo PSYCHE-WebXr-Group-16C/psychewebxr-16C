@@ -5,7 +5,7 @@ import {Entity, Scene} from 'aframe-react';
 import TeleportMenu from '../TeleportMenu/TeleportMenu';
 import './Spacecraft.css';
 
-const BACKGROUND = require("../../assets/images/Space.jpg");
+const BACKGROUND = require("../../assets/images/starmap_background.jpg");
 const SPACECRAFT = require('../../assets/models/Spacecraft.glb');
 const BACK_BUTTON = require('../../assets/images/BackButton.png');
 const BACK_BUTTON2 = require('../../assets/images/BackButton2.png');

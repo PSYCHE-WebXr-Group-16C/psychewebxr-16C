@@ -18,7 +18,7 @@ var globalRotY = 0;
 //   }
 // });
 
-const BACKGROUND = require("../../assets/images/Space.jpg")
+const BACKGROUND = require("../../assets/images/starmap_background.jpg")
 const ASTEROID = require('../../assets/models/TexturedAsteroid.glb');
 const BACK_BUTTON = require('../../assets/images/BackButton.png');
 const BACK_BUTTON2 = require('../../assets/images/BackButton2.png');
