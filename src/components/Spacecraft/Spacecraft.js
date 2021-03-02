@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import SceneComponent from '../SceneComponent/SceneComponent';
 import 'aframe-particle-system-component';
 import {Entity, Scene} from 'aframe-react';
@@ -36,7 +37,7 @@ class Spacecraft extends SceneComponent {
   render () {
     return (
       <div className = "Experience">
-        <div className="HUDElement"><img className="BackButton" src={BACK_BUTTON} alt={BACK_BUTTON2} onClick={this.props.action}></img></div>
+        <div className="HUDElement"><Link to="/"><img className="BackButton" src={BACK_BUTTON2} alt={BACK_BUTTON} onClick={() => {this.turnOffFullScreen()}}/></Link></div>
         <Scene vr-mode-ui="enabled: false">
           <a-entity rotation={`${this.state.rotx} ${this.state.roty} ${this.state.rotz}`}>
             <a-camera rotation-logger-spacecraft

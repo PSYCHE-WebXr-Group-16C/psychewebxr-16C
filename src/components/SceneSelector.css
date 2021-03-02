@@ -1,7 +1,3 @@
-html {
-  -webkit-user-select: none;
-  -webkit-touch-callout: none;
-}
 .MenuButton {
   background: rgba(48, 33, 68, 1);
   border: none;
@@ -30,22 +26,17 @@ html {
   max-width: 100px;
   max-height: 100px;
 }
-.githubWrapper {
-  font-size: 70px;
-  color: black;
-}
 
-.githubWrapper:hover {
-  cursor: pointer;
-  color: rgba(48, 33, 68, 1);
-}
 .Title {
   text-align: center;
-  padding: 30px;
-  margin-bottom: 20px;
+  padding: 20px;
 }
+
 .Row {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin-bottom: 20px;
+}
+.Row:last-child {
+  margin-bottom: 50px;
 }

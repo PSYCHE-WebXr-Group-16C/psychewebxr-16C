@@ -6,6 +6,7 @@
   width: 90%;
 }
 .TextBoxContent {
+  padding: 10px;
   display: block;
   background-color: #1a1a1a;
   color: white;
@@ -29,10 +30,11 @@
 
 .Collapse {
   display: none;
+  opacity: .75;
 }
 
 .TextBoxCollapsible {
-  background-color:black;
+  background-color: #1a1a1a;
   cursor: pointer;
   padding: 18px;
   width: 30%;

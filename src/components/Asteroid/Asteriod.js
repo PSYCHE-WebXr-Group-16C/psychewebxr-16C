@@ -1,22 +1,10 @@
 import React from 'react';
-import AFRAME from 'aframe';
+import {Link} from 'react-router-dom';
 import 'aframe-particle-system-component';
 import {Entity, Scene} from 'aframe-react';
 import './Asteriod.css'
 import TeleportMenu from '../TeleportMenu/TeleportMenu';
-import {matrix, subset, index, multiply, cross} from 'mathjs';
 import SceneComponent from '../SceneComponent/SceneComponent';
-
-var globalRotX = 0;
-var globalRotY = 0;
-
-
-// AFRAME.registerComponent('rotation-logger-asteroid', {
-//   tick: function () {
-//     globalRotX = this.el.object3D.rotation.x
-//     globalRotY = this.el.object3D.rotation.y
-//   }
-// });
 
 const BACKGROUND = require("../../assets/images/starmap_background.jpg")
 const ASTEROID = require('../../assets/models/TexturedAsteroid.glb');
@@ -50,7 +38,7 @@ class Asteroid extends SceneComponent {
   render () {
     return (
       <div className = "Experience">
-        <div className="HUDElement"><img className="BackButton" src={BACK_BUTTON2} alt={BACK_BUTTON} onClick={this.props.action}></img></div>
+        <div className="HUDElement"><Link to="/"><img className="BackButton" src={BACK_BUTTON2} alt={BACK_BUTTON} onClick={() => {this.turnOffFullScreen()}}/></Link></div>
         <Scene vr-mode-ui="enabled: false">
           <a-entity rotation={`${this.state.rotx} ${this.state.roty} ${this.state.rotz}`}>
             <a-camera rotation-logger-asteroid

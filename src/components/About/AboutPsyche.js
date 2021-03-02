@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import './AboutPsyche.css'
 const BACK_BUTTON = require('../../assets/images/BackButton.png');
@@ -9,14 +10,10 @@ const IMG_ERROR = "Image Could Not Be Found"
 
 
 class AboutPsyche extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render () {
         return (
             <div className="AboutPage">
-                <div className="HUDElement"><img className="BackButton" src={BACK_BUTTON2} alt={BACK_BUTTON} onClick={this.props.action}></img></div>
+                <div className="HUDElement"><Link to="/"><img className="BackButton" src={BACK_BUTTON2} alt={BACK_BUTTON}/></Link></div>
                 <div className="AboutPanel">
                     <Tabs>
                         <TabList>
