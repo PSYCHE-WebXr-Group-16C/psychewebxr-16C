@@ -17,12 +17,12 @@ class Asteroid extends SceneComponent {
       asteroidX: -1.505, // Asteroid X Position
       asteroidY: 0.0, // Asteroid Y Position
       asteroidZ: -4.0, // Asteroid Z Position
-      cameraX: 0,
-      cameraY: 1.7,
-      cameraZ: 0,
-      rotx: 0,
-      roty: 0,
-      rotz: 0,
+      cameraX: 0.08, // User Camera X Position
+      cameraY: 1.7, // User Camera Y Position
+      cameraZ: 0.75, // User Camera Z Position
+      rotx: 0, // User Camera Rotation-X Position
+      roty: 0, // User Camera Rotation-Y Position
+      rotz: 0, // User Camera Rotation-Z Position
     }
 
     this.teleport = this.handleTeleport.bind(this);
