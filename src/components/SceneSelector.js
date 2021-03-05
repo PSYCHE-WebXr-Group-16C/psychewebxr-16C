@@ -26,6 +26,7 @@ export default class SceneSelector extends React.Component {
         this.state = { mobileMode: false}
     }
 
+    /* Determines if users device is a mobile device */
     checkMobileMode(){
         if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
             if(this.state.mobileMode !== true){
@@ -73,6 +74,7 @@ export default class SceneSelector extends React.Component {
 
 }
 
+/* Renders the home page with the experience card components */
 function HomePageContent(props) {
     return (
         <div className="Page-Content">

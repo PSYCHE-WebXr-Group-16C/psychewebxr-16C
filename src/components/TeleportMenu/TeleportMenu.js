@@ -26,6 +26,10 @@ import TextBox from './TextBox';
 import './TeleportMenu.css'
 const MENUBUTTON = require("../../assets/images/MenuButton.svg");
 
+/* 
+* This class is for a teleportation menu component that allows the user
+* to move the camera to default locations by choosing options in the menu
+*/
 class TeleportMenu extends React.Component{
 
     constructor(props){
@@ -39,9 +43,15 @@ class TeleportMenu extends React.Component{
 
     }
 
+    /*
+    * Checks if user is using a mobile device and if they are
+    * returns a mobile controls component.
+     */
     buildMobileControls() {
+        // Check if mobile device
         var touchEnabled = ('ontouchstart' in document.documentElement);
         
+        // Check if user is in "free roam" mode and using a mobile device
         if (this.state.text === DEFAULT_CONTROLLER && touchEnabled === true) {
             return (<NavigationButton toggleHold={this.props.toggleHold} toggleRelease={this.props.toggleRelease} handleUpButton={this.props.handleUpButton} handleDownButton={this.props.handleDownButton} handleLeftButton={this.props.handleLeftButton} handleRightButton={this.props.handleRightButton}></NavigationButton>)
         }
@@ -50,14 +60,20 @@ class TeleportMenu extends React.Component{
         }
     }
 
+    /* Toggles the teleportation menu in/out */
     handleMenu(){
         this.setState({isEnabled: !this.state.isEnabled});
     }
 
+    /* Changes the message in the current scene */
     handleMessage(msg) {
         this.setState({text: msg})
     }
 
+    /* 
+    * Checks if the user is in "free roam" mode and returns a text box
+    * component if the user is.
+    */
     buildTextBox() {
         if (this.state.text === DEFAULT_CONTROLLER) {
             return null

@@ -18,13 +18,14 @@ class Spacecraft extends SceneComponent {
       spacecraftX: 0.189, // spacecraft X Position
       spacecraftY: .760, // spacecraft Y Position
       spacecraftZ: -1.405, // spacecraft Z Position
-      cameraX: 0.08, //User Camera X Position
-      cameraY: 1.7, //User Camera Y Position
-      cameraZ: 0.75, //User Camera Z Position
-      rotx: 0, //User Camera Rotation-X Position
-      roty: 0, //User Camera Rotation-Y Position
-      rotz: 0, //User Camera Rotation-Z Position
+      cameraX: 0.08, // User Camera X Position
+      cameraY: 1.7, // User Camera Y Position
+      cameraZ: 0.75, // User Camera Z Position
+      rotx: 0, // User Camera Rotation-X Position
+      roty: 0, // User Camera Rotation-Y Position
+      rotz: 0, // User Camera Rotation-Z Position
     }
+    //Binding for navigation controls, teleportation handler, and movement toggle functions
     this.teleport = this.handleTeleport.bind(this);
     this.upButton = this.handleUpButton.bind(this);
     this.downButton = this.handleDownButton.bind(this);
