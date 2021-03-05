@@ -47,7 +47,7 @@ export default class SceneSelector extends React.Component {
 
     render(){
         return (
-            <Router>
+            <Router basename="/">
             {/* Routing */}
                 <Switch>
                     <Route exact path="/asteroid">
