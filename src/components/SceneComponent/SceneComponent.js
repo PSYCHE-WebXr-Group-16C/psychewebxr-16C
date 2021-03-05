@@ -1,5 +1,5 @@
 import React from 'react';
-import {matrix, subset, index, multiply, cross} from 'mathjs';
+import {matrix, subset, index, multiply} from 'mathjs';
 import AFRAME from 'aframe';
 
 var globalRotX = 0;
@@ -24,7 +24,6 @@ AFRAME.registerComponent('rotation-logger-spacecraft', {
 /* This is the superclass of each scene component. The purpose of this class is to prevent code duplication */
 export default class SceneComponent extends React.Component {
 
-
     constructor(){
         super();
         this.state = {
@@ -38,15 +37,24 @@ export default class SceneComponent extends React.Component {
         this.rightButton = this.handleRightButton.bind(this);
     }
 
+    turnOffFullScreen() {
+      try{
+        document.getElementById("html").className = "";
+      }
+      catch{
+        window.location.href = "";
+      }
+    }
+
     toggleHold(selectedFunc) {
       var toggleFunc;
       if (selectedFunc === "up") {
         toggleFunc = this.upButton;
       }
-      else if (selectedFunc == "down") {
+      else if (selectedFunc === "down") {
         toggleFunc = this.downButton;
       }
-      else if (selectedFunc == "right") {
+      else if (selectedFunc === "right") {
         toggleFunc = this.rightButton;
       }
       else {

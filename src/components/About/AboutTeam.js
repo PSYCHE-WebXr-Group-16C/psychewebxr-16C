@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import './AboutTeam.css'
 const BACK_BUTTON = require('../../assets/images/BackButton.png');
 const BACK_BUTTON2 = require('../../assets/images/BackButton2.png');
@@ -15,7 +16,7 @@ class AboutTeam extends React.Component {
     render () {
         return (
             <div className="AboutPage">
-                <div className="HUDElement"><img className="BackButton" src={BACK_BUTTON2} alt={BACK_BUTTON} onClick={this.props.action}></img></div>
+                <div className="HUDElement"><Link to="/"><img className="BackButton" src={BACK_BUTTON2} alt={BACK_BUTTON}/></Link></div>
                 <div className="AboutTeamPanel">
 
                 <div style = {{color:"white", display: 'flex', justifyContent: 'center'}}>

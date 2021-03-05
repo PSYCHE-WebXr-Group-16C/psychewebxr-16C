@@ -10,13 +10,18 @@
   opacity: .9;
 }
 
+.noLinkStyle{
+  text-decoration: none;
+  color: black;
+}
+
 .Experience-Card-Image {
   width: 200px;
   height: 200px;
   border-radius: 15px 15px;
 }
 
-.Experience-Card-Text{
+.Experience-Card-Text {
   font-weight: 800;
   font-size: 24px;
   margin: 10px;
