@@ -7,6 +7,7 @@ import TeleportMenu from '../TeleportMenu/TeleportMenu';
 import SceneComponent from '../SceneComponent/SceneComponent';
 
 const BACKGROUND = require("../../assets/images/starmap_background.jpg")
+const SPLASHSCREEN = require("../../assets/images/Psyche-Badge.png");
 const ASTEROID = require('../../assets/models/TexturedAsteroid.glb');
 const BACK_BUTTON = require('../../assets/images/BackButton.png');
 const BACK_BUTTON2 = require('../../assets/images/BackButton2.png');
@@ -23,6 +24,7 @@ class Asteroid extends SceneComponent {
       rotx: 0, // User Camera Rotation-X Position
       roty: 0, // User Camera Rotation-Y Position
       rotz: 0, // User Camera Rotation-Z Position
+      isLoading: true,
     }
 
     this.teleport = this.handleTeleport.bind(this);
@@ -32,10 +34,14 @@ class Asteroid extends SceneComponent {
     this.rightButton = this.handleRightButton.bind(this);
     this.hold = this.toggleHold.bind(this);
     this.release = this.toggleRelease.bind(this);
+  }
 
+  componentDidMount() {
+    setTimeout(() => { this.setState({ isLoading: false }) }, 3000);
   }
 
   render () {
+    var splash = this.state.isLoading ? "Visible":"Hidden";
     return (
       <div className = "Experience">
         <div className="HUDElement"><Link to="/"><img className="BackButton" src={BACK_BUTTON2} alt={BACK_BUTTON} onClick={() => {this.turnOffFullScreen()}}/></Link></div>
@@ -56,6 +62,9 @@ class Asteroid extends SceneComponent {
           ></Entity>
         </Scene>
         <TeleportMenu scene="ASTEROID" toggleHold={this.hold} toggleRelease={this.release} handleTeleport={this.teleport} handleUpButton={this.upButton} handleDownButton={this.downButton} handleLeftButton={this.leftButton} handleRightButton={this.rightButton}/>
+        <div className={"SplashScreen " + splash}>
+              <img className="Splash" src={SPLASHSCREEN} alt={BACKGROUND}/>
+        </div>
       </div>
     );
   }
