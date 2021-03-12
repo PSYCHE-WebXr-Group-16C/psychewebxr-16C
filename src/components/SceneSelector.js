@@ -47,8 +47,9 @@ export default class SceneSelector extends React.Component {
 
     render(){
         return (
-            <Router>
-            {/* Routing */}
+            //NOTE DO NOT CHANGE basename="/" IT WILL *NOT* RENDER THE AFRAME SCENES
+            //NOTE ONLY CHANGE IF THE HOMEPAGE IS SUPPOSED TO START IN A DIRECTORY OTHER THAN "/". For example "www.EXAMPLEURL.com/ourappfolder" Then it will be basename="/ourappfolder"
+            <Router basename="/">
                 <Switch>
                     <Route exact path="/asteroid">
                         <Asteriod mobileMode={this.state.mobileMode} />
@@ -68,8 +69,7 @@ export default class SceneSelector extends React.Component {
                 </Switch>
             </Router>
 
-        )
-            
+        )      
     }
 
 }
