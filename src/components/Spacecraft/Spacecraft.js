@@ -7,6 +7,7 @@ import TeleportMenu from '../TeleportMenu/TeleportMenu';
 import './Spacecraft.css';
 
 const BACKGROUND = require("../../assets/images/starmap_background.jpg");
+const SPLASHSCREEN = require("../../assets/images/Psyche-Badge.png");
 const SPACECRAFT = require('../../assets/models/Spacecraft.glb');
 const BACK_BUTTON = require('../../assets/images/BackButton.png');
 const BACK_BUTTON2 = require('../../assets/images/BackButton2.png');
@@ -24,6 +25,7 @@ class Spacecraft extends SceneComponent {
       rotx: 0, // User Camera Rotation-X Position
       roty: 0, // User Camera Rotation-Y Position
       rotz: 0, // User Camera Rotation-Z Position
+      isLoading: true,
     }
     //Binding for navigation controls, teleportation handler, and movement toggle functions
     this.teleport = this.handleTeleport.bind(this);
@@ -35,7 +37,12 @@ class Spacecraft extends SceneComponent {
     this.release = this.toggleRelease.bind(this);
   }
 
+  componentDidMount() {
+    setTimeout(() => { this.setState({ isLoading: false }) }, 3000);
+  }
+
   render () {
+    var splash = this.state.isLoading ? "Visible":"Hidden";
     return (
       <div className = "Experience">
         <div className="HUDElement"><Link to="/"><img className="BackButton" src={BACK_BUTTON2} alt={BACK_BUTTON} onClick={() => {this.turnOffFullScreen()}}/></Link></div>
@@ -56,6 +63,9 @@ class Spacecraft extends SceneComponent {
           <Entity light={{type: 'point'}} position="0 5 0" />
         </Scene>
         <TeleportMenu scene="SPACECRAFT" toggleHold={this.hold} toggleRelease={this.release} handleTeleport={this.teleport} handleUpButton={this.upButton} handleDownButton={this.downButton} handleLeftButton={this.leftButton} handleRightButton={this.rightButton}/>
+        <div className={"SplashScreen " + splash}>
+              <img className="Splash" src={SPLASHSCREEN} alt={BACKGROUND}/>
+        </div>
       </div>
     );
   }
