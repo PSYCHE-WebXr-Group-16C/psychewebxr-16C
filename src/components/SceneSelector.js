@@ -90,7 +90,7 @@ function HomePageContent(props) {
                     mode={ASTEROID_MODE}
                     photoPath={psycheAsteroid}
                     altPath={""}
-                    color={"#FFCC33"}
+                    color={"#f9a000"}
                 />
                 <ExperienceCard
                     link={true}
@@ -100,7 +100,7 @@ function HomePageContent(props) {
                     mode={SPACECRAFT_MODE}
                     photoPath={retroPicture}
                     altPath={""}
-                    color={"#66CCFF"}
+                    color={"#f9a000"}
                 />
             </div>
             <div className="Row">
@@ -112,7 +112,7 @@ function HomePageContent(props) {
                     mode={ABOUT_PSYCHE_MODE}
                     photoPath={psycheInfo}
                     altPath={""}
-                    color={"#CCFF99"}
+                    color={"#f47c33"}
                 />
                 <ExperienceCard
                     link={true}
@@ -122,7 +122,7 @@ function HomePageContent(props) {
                     mode={ABOUT_TEAM_MODE}
                     photoPath={psycheTeam}
                     altPath={""}
-                    color={"#FFFF99"}
+                    color={"#f47c33"}
                 />
             </div>
             <div className="Row">
@@ -134,7 +134,7 @@ function HomePageContent(props) {
                     mode={null}
                     photoPath={github}
                     altPath={""}
-                    color={"#CCCCCC"}
+                    color={"#a53f5b"}
                 />
                 <ExperienceCard
                     link={false}
@@ -144,7 +144,7 @@ function HomePageContent(props) {
                     mode={null}
                     photoPath={Badge}
                     altPath={""}
-                    color={"#FF9966"}
+                    color={"#a53f5b"}
                 />
             </div>
         </div>
