@@ -26,6 +26,7 @@ class Spacecraft extends SceneComponent {
       roty: 0, // User Camera Rotation-Y Position
       rotz: 0, // User Camera Rotation-Z Position
       isLoading: true,
+      percentage: 0
     }
     //Binding for navigation controls, teleportation handler, and movement toggle functions
     this.teleport = this.handleTeleport.bind(this);
@@ -38,7 +39,12 @@ class Spacecraft extends SceneComponent {
   }
 
   componentDidMount() {
-    setTimeout(() => { this.setState({ isLoading: false }) }, 3000);
+    let interval = setInterval(() => {
+      this.setState({ percentage: this.state.percentage+1});}, 10);
+    setTimeout(() => { 
+      this.setState({ isLoading: false});
+      clearInterval(interval);
+    }, 3000);
   }
 
   render () {
@@ -65,6 +71,7 @@ class Spacecraft extends SceneComponent {
         <TeleportMenu scene="SPACECRAFT" toggleHold={this.hold} toggleRelease={this.release} handleTeleport={this.teleport} handleUpButton={this.upButton} handleDownButton={this.downButton} handleLeftButton={this.leftButton} handleRightButton={this.rightButton}/>
         <div className={"SplashScreen " + splash}>
               <img className="Splash" src={SPLASHSCREEN} alt={BACKGROUND}/>
+              <span class="progress-bar" style={{width:`${this.state.percentage + '%'}`}}></span>
         </div>
       </div>
     );
