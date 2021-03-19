@@ -53,3 +53,11 @@ html {
   opacity: 0;
   transition: visibility 0s 1s, opacity 1s linear;
 }
+
+.progress-bar {
+  background-color: #a53f5b;
+  position: absolute;
+  height: 5px;
+  width: 0%;
+  position: absolute;
+}
