@@ -12,7 +12,6 @@
   border-style: inset;
   border-color: rgba(165, 63, 91, 1);
   border-radius: 1vw;
-  font-family: Helvetica;
   font-weight: bold;
 }
 
@@ -30,6 +29,7 @@
 .Title {
   text-align: center;
   padding: 20px;
+  color: white;
 }
 
 .Row {

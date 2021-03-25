@@ -28,45 +28,55 @@ class AboutTeam extends React.Component {
                     <div class = "personImg">
                         <img src={Zack} alt={IMG_ERROR}></img>
                     </div>
+                    <div class = "text">
                             <p><h3>Zachary Cooper</h3><br/>
                             - Arizona State Univerisity<br/>
                             - Computer Science, Senior<br/>
                             - Product Engineering Intern at Equinix<br/>
                             &nbsp;&nbsp;Specializes in Full Stack Web Development<br/>
                            </p>
+                    </div>
                 </div>
                 <div class = "person">
                     <div class = "personImg">
                         <img src={Ryan} alt={IMG_ERROR}></img>
                     </div>
+                    <div class = "text">
+
                             <p><h3>Ryan Tucker</h3><br/>
                             - Arizona State Univerisity<br/>
                             - Computer Science, Senior<br/>
                             - Intern at the Pacific Northwest National Laboratory<br/>
                             &nbsp;&nbsp;(Buildings and Connected Systems Group)<br/>
                            </p>
+                    </div>
                 </div>
                 <div class = "person">
                     <div class = "personImg">
                         <img src={Yu} alt={IMG_ERROR}></img>
                     </div>
+                    <div class = "text">
+
                             <p><h3>Yu Fu</h3><br/>
                             - Arizona State Univerisity<br/>
                             - Computer Science, Senior<br/>
                             - Machine learning project with University of<br/>
                             &nbsp;&nbsp;Southern California <br/>
                            </p>
+                    </div>
                 </div>
                 <div class = "person">
                     <div class = "personImg">
                         <img src={Liangbin} alt={IMG_ERROR}></img>
                     </div>
+                    <div class = "text">
                             <p><h3>Liangbin Gao</h3><br/>
                             - Arizona State Univerisity<br/>
                             - Computer Science, Senior<br/>
                             - Cancer prediction project with Dr. Victor Adamchik<br/>
                            <br/>
                            </p>
+                    </div>
                 </div>
                 </div>
 
