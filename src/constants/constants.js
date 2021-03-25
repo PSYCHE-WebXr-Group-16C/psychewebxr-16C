@@ -11,16 +11,16 @@ export const ABOUT_TEAM_MODE = "ABOUT_TEAM_MODE";
 
 /* Presets */
 // export const SPACECRAFT_1 = {x: 0.208, y: 1.109, z: 1.656, rx: -3.850, ry: 339.87, rz: 0, controls: true};
-export const SPACECRAFT_2 = {x: 0.437, y: 1.35, z: -0.617, rx: -29.56, ry: 40.336, rz: 0, controls: false};
-export const SPACECRAFT_3 = {x: 0.004, y: 1.398, z: -.584, rx: 0.115, ry: 0, rz: 0, controls: false};
-export const SPACECRAFT_4 = {x: 0.004, y: 1.398, z: -.584, rx: 0.115, ry: 0, rz: 0, controls: false};
-export const SPACECRAFT_5 = {x: 0.196, y: 0.890, z: -1.684, rx: 0.573, ry: 151.37, rz: -1, controls: false};
+export const SPACECRAFT_2 = { x: 0.004, y: 1.398, z: 1, rx: 0, ry: 0, rz: 0, controls: false };
+export const SPACECRAFT_3 = { x: 0.004, y: 1.398, z: -0.725, rx: 0.115, ry: 0, rz: 0, controls: false };
+export const SPACECRAFT_4 = { x: 0.004, y: 1.398, z: -.584, rx: 0.115, ry: 0, rz: 0, controls: false };
+export const SPACECRAFT_5 = { x: 0.004, y: -1.398, z: 1.9, rx: 130, ry: 0, rz: 0, controls: false };
 
 // export const ASTEROID_1 = {x: 1.469, y: 2.02, z: 1.259, rx: -12.26, ry: 19.481, rz: 0, controls: true};
-export const ASTEROID_2 = {x: -0.614, y: 2.039, z: -5.956, rx: -22.57, ry: 173.72, rz: 0, controls: false};
-export const ASTEROID_3 = {x: 3, y: 1.7, z: .5, rx: 0, ry: 0, rz: 0, controls: false};
-export const ASTEROID_4 = {x: -3.015, y: 1.502, z: -4.088, rx: -8.021, ry: 597.93, rz: 0, controls: false};
-export const ASTEROID_5 = {x: 2.859, y: 1.786, z: -.474, rx: -7.642, ry: 52.696, rz: 62.977, controls: false};
+export const ASTEROID_2 = { x: 0, y: 1.7, z: 0, rx: 0, ry: 0, rz: 0, controls: false };
+export const ASTEROID_3 = { x: -1.5, y: 1.7, z: 5, rx: 0, ry: -140, rz: 0, controls: false };
+export const ASTEROID_4 = { x: 2.5, y: 1.3, z: 3, rx: 0, ry: 100, rz: 0, controls: false };
+export const ASTEROID_5 = { x: -0.131, y: 1.891, z: -1.251, rx: 0, ry: 1.686, rz: 6.381, controls: false };
 
 /* Old Presets */
 export const SPACECRAFT_1 = {x: 0, y: 1.7, z: 0, rx: 0, ry: 0, rz: 0, controls: true};
