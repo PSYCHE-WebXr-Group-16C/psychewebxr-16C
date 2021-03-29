@@ -24,8 +24,7 @@
     "upgrade-all-packages": "npx npm-check-updates -u",
     "clean": "rm -rf node_modules/",
     "build": "react-scripts build",
-    "test": "jest",
-    "test2": "react-scripts test",
+    "test": "jest src",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
