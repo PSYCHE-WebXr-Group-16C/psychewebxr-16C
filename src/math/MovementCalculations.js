@@ -55,7 +55,7 @@ export function handleLeftCalculation(globalRotX, globalRotY, sX, sY, sZ){
     var matz = subset(matrixResult, index(2,0));
 
     var newX = sX + matx; // New X Value
-    var newY = sY + maty; // New Y Value
+    var newY = sY; // New Y Value
     var newZ = sZ + matz; // New Z Value
 
     return {newX, newY, newZ}
@@ -82,7 +82,7 @@ export function handleRightCalculation(globalRotX, globalRotY, sX, sY, sZ){
     var matz = subset(matrixResult, index(2,0));
 
     var newX = sX - matx; // New X Value
-    var newY = sY - maty; // New Y Value
+    var newY = sY; // New Y Value
     var newZ = sZ - matz; // New Z Value
 
     return {newX, newY, newZ}
