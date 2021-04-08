@@ -27,7 +27,7 @@ npm run start
 
 Run *Jest* test suite
 ```
-npm run dev
+npm run test
 ```
 
 Compile a production build
