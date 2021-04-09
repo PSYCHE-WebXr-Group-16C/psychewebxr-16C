@@ -57,4 +57,5 @@ Liangbin Gao    | https://github.com/Brucebb97
 **ASU Mission Page:** https://psyche.asu.edu/
 **NASA Mission Page:** https://www.jpl.nasa.gov/missions/psyche
 
-# Image Of Application
+# Main Page Of Application
+![Main Page](https://raw.githubusercontent.com/PSYCHE-WebXr-Group-16C/psychewebxr/master/public/Application%20Pictures/Main%20Screen.jpg)
