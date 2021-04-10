@@ -37,6 +37,42 @@
   justify-content: space-evenly;
   margin-bottom: 20px;
 }
+
 .Row:last-child {
   margin-bottom: 50px;
+}
+
+.Disclaimer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(to left,
+  rgba(245, 125, 50, 1) 0%,
+  rgba(239, 89, 102,1) 50%);
+  color: white;
+  padding: 10px 20px;
+  font-weight: 600;
+  
+}
+
+.Disclaimer p, h3{
+  margin: 10px 0px;
+}
+
+.DisclaimerButton {
+  display: flex;
+  width: 70px;
+  height: 35px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: white;
+  color: black;
+  font-weight: 600;
+  float: right;
+}
+
+.DisclaimerButton:hover {
+  background-color: black;
+  color: white;
 }
