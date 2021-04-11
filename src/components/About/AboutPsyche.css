@@ -1,12 +1,12 @@
 .AboutPage {
-  margin:10px;
-  padding:10px;
+  margin: 10px;
+  padding: 10px;
 }
-.HUDElement{
+.HUDElement {
   position: absolute;
   z-index: 2;
 }
-.BackButton{
+.BackButton {
   width: 50px;
   height: 50px;
   top: 10px;
@@ -15,8 +15,8 @@
   position: relative;
 }
 
-.BackButton:hover{
-  opacity: .9;
+.BackButton:hover {
+  opacity: 0.9;
 }
 .AboutPanel {
   margin-top: 80px;
@@ -56,7 +56,7 @@
 
 .react-tabs__tab--selected {
   background: rgba(48, 33, 68, 1);
-  border-color:  rgba(165, 63, 91, 1);
+  border-color: rgba(165, 63, 91, 1);
   color: white;
   border-radius: 5px 5px 0 0;
 }
@@ -79,14 +79,20 @@
   left: -4px;
   right: -4px;
   bottom: -5px;
-  background: #fff;
 }
 
 .react-tabs__tab-panel {
   display: none;
 }
-
+.react-tabs__tab-list {
+  display: flex;
+  justify-content: space-around;
+}
 .react-tabs__tab-panel--selected {
   display: block;
-  background-color: white;
-} 
+}
+.react-tabs__tab-panel h2,
+.react-tabs__tab-panel h3 {
+  text-align: center;
+  
+}

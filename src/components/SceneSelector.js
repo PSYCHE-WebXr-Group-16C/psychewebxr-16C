@@ -23,7 +23,8 @@ export default class SceneSelector extends React.Component {
 
     constructor(props){
         super(props);
-        this.state = { mobileMode: false}
+        this.state = { mobileMode: false, disclaimerShown: true }
+        this.toggleDisc = this.toggleDisclaimer.bind(this);
     }
 
     /* Determines if users device is a mobile device */
@@ -43,31 +44,38 @@ export default class SceneSelector extends React.Component {
     componentDidMount() {
         this.checkMobileMode();
         printDebug("Launching App in mobile mode: " + this.state.mobileMode);
+        this.setState({disclaimerShown: true});
+    }
+
+    toggleDisclaimer(){
+        this.setState({disclaimerShown: !this.state.disclaimerShown})
     }
 
     render(){
         return (
             //NOTE DO NOT CHANGE basename="/" IT WILL *NOT* RENDER THE AFRAME SCENES
             //NOTE ONLY CHANGE IF THE HOMEPAGE IS SUPPOSED TO START IN A DIRECTORY OTHER THAN "/". For example "www.EXAMPLEURL.com/ourappfolder" Then it will be basename="/ourappfolder"
-            <Router basename="/">
-                <Switch>
-                    <Route exact path="/asteroid">
-                        <Asteriod mobileMode={this.state.mobileMode} />
-                    </Route>
-                    <Route exact path="/spacecraft">
-                        <Spacecraft mobileMode={this.state.mobileMode} />
-                    </Route>
-                    <Route exact path="/team">
-                        <AboutTeam mobileMode={this.state.mobileMode} />
-                    </Route>
-                    <Route exact path="/mission">
-                        <AboutPsyche mobileMode={this.state.mobileMode} />
-                    </Route>
-                    <Route path="/">
-                        <HomePageContent mobileMode={this.state.mobileMode} />
-                    </Route>
-                </Switch>
-            </Router>
+            <div>
+                <Router basename="/">
+                    <Switch>
+                        <Route exact path="/asteroid">
+                            <Asteriod mobileMode={this.state.mobileMode} />
+                        </Route>
+                        <Route exact path="/spacecraft">
+                            <Spacecraft mobileMode={this.state.mobileMode} />
+                        </Route>
+                        <Route exact path="/team">
+                            <AboutTeam mobileMode={this.state.mobileMode} />
+                        </Route>
+                        <Route exact path="/mission">
+                            <AboutPsyche mobileMode={this.state.mobileMode} />
+                        </Route>
+                        <Route path="/">
+                            <HomePageContent disclaimerShown={this.state.disclaimerShown} toggleDisclaimer={this.toggleDisc} mobileMode={this.state.mobileMode} />
+                        </Route>
+                    </Switch>
+                </Router>
+            </div>
 
         )      
     }
@@ -147,6 +155,18 @@ function HomePageContent(props) {
                     color={"#a53f5b"}
                 />
             </div>
+            {
+                // This ternary presents the disclaimer on the homepage. When the div "DisclaimerButton is clicked, it disappears."
+                props.disclaimerShown ? 
+                <div className="Disclaimer">
+                    <h3><u>Disclaimer</u></h3>
+                    <p>This work was created in partial fulfillment of Arizona State University Capstone Course CSE 486. The work is a result of the Psyche Student Collaborations component of NASA’s Psyche Mission (https://psyche.asu.edu). “Psyche: A Journey to a Metal World” [Contract number NNM16AA09C] is part of the NASA Discovery Program mission to solar system targets.</p>
+                    <p>Trade names and trademarks of ASU and NASA are used in this work for identification only. Their usage does not constitute an official endorsement, either expressed or implied, by Arizona State University or National Aeronautics and Space Administration. The content is solely the responsibility of the authors and does not necessarily represent the official views of ASU or NASA.</p>
+                    <div className="DisclaimerButton" onClick={ () => { props.toggleDisclaimer() } }>Accept</div>
+                </div>
+                :
+                null
+            }
         </div>
     );
 }

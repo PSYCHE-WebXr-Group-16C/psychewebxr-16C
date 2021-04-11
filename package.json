@@ -21,7 +21,6 @@
   "scripts": {
     "start": "react-scripts start",
     "dev": "set HTTPS=true&&npm start",
-    "upgrade-all-packages": "npx npm-check-updates -u",
     "clean": "rm -rf node_modules/",
     "build": "react-scripts build",
     "test": "jest src",
