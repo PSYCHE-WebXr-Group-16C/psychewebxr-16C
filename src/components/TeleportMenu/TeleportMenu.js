@@ -15,7 +15,6 @@ import {
     MESSAGE_2,
     MESSAGE_3,
     MESSAGE_4,
-    // MESSAGE_5,
     MESSAGE_6,
     MESSAGE_7,
     MESSAGE_8,
