@@ -1,3 +1,7 @@
+/*
+* The style for experience in main interface
+* for pc
+*/
 .Experience-Card {
   width: 225px;
   padding: 20px 15px;
@@ -29,6 +33,10 @@
   color:white;
 }
 
+/*
+* The style for experience in main interface
+* for mobile device
+*/
 @media only screen and (max-width: 600px) {
   .Experience-Card-Wrapper{
     text-align: center;

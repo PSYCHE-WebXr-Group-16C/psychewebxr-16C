@@ -1,3 +1,7 @@
+/*
+* Educational blurb text box style. 
+* Includes styles of text, box, expand and collapse
+*/
 .TextBox {
   position: absolute;
   z-index: 2;

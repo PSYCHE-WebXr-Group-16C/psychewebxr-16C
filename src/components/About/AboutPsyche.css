@@ -1,3 +1,6 @@
+/*
+*Page style setting
+*/
 .AboutPage {
   margin: 10px;
   padding: 10px;
@@ -6,6 +9,10 @@
   position: absolute;
   z-index: 2;
 }
+
+/* 
+*back button on top left
+*/
 .BackButton {
   width: 50px;
   height: 50px;
@@ -18,6 +25,10 @@
 .BackButton:hover {
   opacity: 0.9;
 }
+
+/*
+*About Psyche panel style setting
+*/
 .AboutPanel {
   margin-top: 80px;
 }
@@ -33,6 +44,11 @@
   max-height: 100px;
 }
 
+/*
+*react style setting
+*The style of button will be changed when the user selects it
+*
+*/
 .react-tabs {
   -webkit-tap-highlight-color: transparent;
 }
@@ -41,6 +57,8 @@
   border-bottom: 1px solid rgba(48, 33, 68, 1);
   margin: 0 0 10px;
   padding: 0;
+  display: flex;
+  justify-content: space-around;
 }
 
 .react-tabs__tab {
@@ -84,10 +102,7 @@
 .react-tabs__tab-panel {
   display: none;
 }
-.react-tabs__tab-list {
-  display: flex;
-  justify-content: space-around;
-}
+
 .react-tabs__tab-panel--selected {
   display: block;
 }
