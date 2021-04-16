@@ -19,9 +19,9 @@ class Spacecraft extends SceneComponent {
       spacecraftX: 0.189, // spacecraft X Position
       spacecraftY: .760, // spacecraft Y Position
       spacecraftZ: -1.405, // spacecraft Z Position
-      cameraX: 0.08, // User Camera X Position
-      cameraY: 1.7, // User Camera Y Position
-      cameraZ: 0.75, // User Camera Z Position
+      cameraX: 0.004, // User Camera X Position
+      cameraY: 1.398, // User Camera Y Position
+      cameraZ: 1, // User Camera Z Position
       rotx: 0, // User Camera Rotation-X Position
       roty: 0, // User Camera Rotation-Y Position
       rotz: 0, // User Camera Rotation-Z Position
@@ -78,6 +78,7 @@ class Spacecraft extends SceneComponent {
           </Entity>
           <Entity primitive='a-sky' src={BACKGROUND} rotation="25 -100 0"/>
           <Entity light={{type: 'point'}} position="0 5 0" />
+          <Entity light={{type: 'point'}} position="0 5 -5" />
         </Scene>
         <TeleportMenu scene="SPACECRAFT" toggleHold={this.hold} toggleRelease={this.release} handleTeleport={this.teleport} handleUpButton={this.upButton} handleDownButton={this.downButton} handleLeftButton={this.leftButton} handleRightButton={this.rightButton}/>
         <div className={"SplashScreen " + splash}>

@@ -13,30 +13,17 @@ export const ABOUT_TEAM_MODE = "ABOUT_TEAM_MODE";
 * Camera Presets for the Spacecraft and Asteroid to be used 
 * in the teleportation menu 
 */
-// export const SPACECRAFT_1 = {x: 0.208, y: 1.109, z: 1.656, rx: -3.850, ry: 339.87, rz: 0, controls: true};
+export const SPACECRAFT_1 = {x: 0.004, y: 1.398, z: .9, rx: 0, ry: 0, rz: 0, controls: true};
 export const SPACECRAFT_2 = { x: 0.004, y: 1.398, z: 1, rx: 0, ry: 0, rz: 0, controls: false };
-export const SPACECRAFT_3 = { x: 0.004, y: 1.398, z: -0.725, rx: 0.115, ry: 0, rz: 0, controls: false };
-export const SPACECRAFT_4 = { x: 0.004, y: 1.398, z: -.584, rx: 0.115, ry: 0, rz: 0, controls: false };
-export const SPACECRAFT_5 = { x: 0.004, y: -1.398, z: 1.9, rx: 130, ry: 0, rz: 0, controls: false };
+export const SPACECRAFT_3 = { x: 0.004, y: 1.398, z: -.584, rx: 0.115, ry: 0, rz: 0, controls: false };
+export const SPACECRAFT_4 = { x: 0.004, y: 1.049, z: 0.115, rx: 0.115, ry: 0, rz: 0, controls: false };
+export const SPACECRAFT_5 = { x: .008, y: -1.154, z: -0.030, rx: 90, ry: 0, rz: 0, controls: false };
 
-// export const ASTEROID_1 = {x: 1.469, y: 2.02, z: 1.259, rx: -12.26, ry: 19.481, rz: 0, controls: true};
+export const ASTEROID_1 = {x: 0, y: 1.7, z: 0, rx: 0, ry: 0, rz: 0, controls: true};
 export const ASTEROID_2 = { x: 0, y: 1.7, z: 0, rx: 0, ry: 0, rz: 0, controls: false };
 export const ASTEROID_3 = { x: -0.879, y: 1.439, z: 5.201, rx: 0, ry: -100, rz: 0, controls: false };
 export const ASTEROID_4 = { x: 2.5, y: 1.3, z: 3, rx: 0, ry: 100, rz: 0, controls: false };
 export const ASTEROID_5 = { x: -0.131, y: 1.891, z: -1.251, rx: 0, ry: 1.686, rz: 6.381, controls: false };
-
-/* Old Presets */
-export const SPACECRAFT_1 = {x: 0, y: 1.7, z: 0, rx: 0, ry: 0, rz: 0, controls: true};
-// export const SPACECRAFT_2 = {x: 3, y: 1.7, z: 0, rx: 0, ry: 0, rz: 0, controls: false};
-// export const SPACECRAFT_3 = {x: 3, y: 1.7, z: 0, rx: 0, ry: 0, rz: 0, controls: false};
-// export const SPACECRAFT_4 = {x: 3, y: 1.7, z: 0, rx: 0, ry: 0, rz: 0, controls: false};
-// export const SPACECRAFT_5 = {x: 3, y: 1.7, z: 0, rx: 0, ry: 0, rz: 0, controls: false};
-
-export const ASTEROID_1 = {x: 0, y: 1.7, z: 0, rx: 0, ry: 0, rz: 0, controls: true};
-// export const ASTEROID_2 = {x: 1, y: 1.7, z: 0, rx: 10, ry: 2, rz: 0, controls: false};
-// export const ASTEROID_3 = {x: 2, y: 1.7, z: 0, rx: 0, ry: 0, rz: 0, controls: false};
-// export const ASTEROID_4 = {x: 3, y: 1.7, z: 0, rx: 0, ry: 0, rz: 0, controls: false};
-// export const ASTEROID_5 = {x: 4, y: 1.7, z: 0, rx: 0, ry: 0, rz: 0, controls: false};
 
 
 /* Messages to be shown in text boxes based off teleporation menu selections */
@@ -46,7 +33,6 @@ export const MESSAGE_1 = "The Psyche spacecraft and solar panels, built by Maxar
 export const MESSAGE_2 = "The Multispectral Imager will provide high-resolution images of the asteroid's surface, as well as data on its composition (how much metal, how much silicate) and topography";
 export const MESSAGE_3 = "The spectrometer will detect, measure, and map Psyche’s elemental composition.";
 export const MESSAGE_4 = "The magnetometer will detect and measure the asteroid's magnetic field";
-export const MESSAGE_5 = "";
 
 export const MESSAGE_6 = "Only the 16th asteroid to be discovered, Psyche was found in 1852 by Italian astronomer Annibale de Gasparis, who named it for the goddess of the soul in ancient Greek mythology. What gives asteroid Psyche great scientific interest is that it is likely rich in metal. It may consist largely of metal from the core of an early planet, one of the building blocks of the Sun’s planetary system. Through this mission, scientists will explore, for the first time ever, a world made not of rock or ice, but of metal. Dimensions: 173 x 144 x 117 mi (279 x 232 x 189 km) Density: Estimated 3,400 to 4,100 kg/m³ Diameter: 140 mi (226 km) if shown as a perfect sphere Surface Area: 246,300 mi² (641,800 km²)";
 export const MESSAGE_7 = "Psyche orbits the Sun between the orbits of Mars and Jupiter at a distance ranging from 235 million to 309 million miles (378 million to 497 million kilometers) from the Sun. That’s 2.5 to 3.3 Astronomical Units (AU), with 1 AU being the distance between Earth and the Sun. Psyche takes about five Earth years to complete one orbit of the Sun, but only a bit over four hours to rotate once on its axis (a Psyche “day”).";

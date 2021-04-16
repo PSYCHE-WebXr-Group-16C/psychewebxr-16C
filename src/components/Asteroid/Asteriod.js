@@ -70,6 +70,7 @@ class Asteroid extends SceneComponent {
           </a-entity>
           <Entity primitive='a-sky' src={BACKGROUND} rotation="0 -100 0"/>
           <Entity light={{type: 'point'}} position="0 10 0" />
+          <Entity light={{type: 'point'}} position="0 10 -9" />
           <Entity gltf-model={ASTEROID}
             scale="1 1 1"
             rotation="0 -8 0"
