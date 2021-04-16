@@ -1,3 +1,7 @@
+/*
+* Style for main interface scence selector. 
+* Includes styles of bakeground, button, photo, text
+*/
 .MenuButton {
   background: rgba(48, 33, 68, 1);
   border: none;

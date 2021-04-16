@@ -19,7 +19,7 @@ export default class ExperienceCard extends React.Component{
             return(
                 <Link className="noLinkStyle" to={`/${this.props.linkPath}`}>
                     <div className="Experience-Card-Wrapper">
-                        <div className="Experience-Card" style={{"background-color": this.props.color}}>
+                        <div className="Experience-Card" style={{"backgroundColor": this.props.color}}>
                             <img className="Experience-Card-Image" src={this.props.photoPath} alt={this.props.altPath}></img>
                             <p className="Experience-Card-Text">{this.props.title}</p>
                         </div>
@@ -34,7 +34,7 @@ export default class ExperienceCard extends React.Component{
             return(
                     <div className="Experience-Card-Wrapper">
                         <a className="noLinkStyle" target="_blank" rel="noopener noreferrer" href={this.props.url}>
-                            <div className="Experience-Card" style={{"background-color": this.props.color}}>
+                            <div className="Experience-Card" style={{"backgroundColor": this.props.color}}>
                                 <img className="Experience-Card-Image" src={this.props.photoPath} alt={this.props.altPath}></img>
                                 <p className="Experience-Card-Text">{this.props.title}</p>
                             </div>

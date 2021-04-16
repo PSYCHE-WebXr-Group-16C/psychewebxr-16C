@@ -1,3 +1,6 @@
+/*
+* The navigation button to move the 3D scene on asteroid page and spacecraft page
+*/
 .Nav-Buttons-Grid {
   position: absolute;
   z-index: 2;
@@ -41,6 +44,9 @@
   transform: rotate(270deg);
 }
 
+/*
+*Define device min-width for better diaplay and adapts to screen size
+*/
 @media screen and (min-width: 100px)
 {
   .Nav-Buttons-Grid {
