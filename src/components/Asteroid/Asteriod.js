@@ -37,15 +37,24 @@ class Asteroid extends SceneComponent {
     this.release = this.toggleRelease.bind(this);
   }
 
+  /*
+  * Once the component is mounted a timeout is set that is used to show
+  * a splash screen that allows the 3D model to load before showing the
+  * scene. Also a interval is used to calculate a progress bar at the
+  * top of the scree.
+  */
   componentDidMount() {
     let interval = setInterval(() => {
-      this.setState({ percentage: this.state.percentage+1});}, 15);
+      this.setState({ percentage: this.state.percentage+1});}, 25);
     setTimeout(() => { 
       this.setState({ isLoading: false});
       clearInterval(interval);
-    }, 3000);
+    }, 5000);
   }
 
+  /*
+  * Renders the Asteroid scene with the preset values.
+  */
   render () {
     var splash = this.state.isLoading ? "Visible":"Hidden";
     return (

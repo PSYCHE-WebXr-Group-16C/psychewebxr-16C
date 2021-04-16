@@ -40,3 +40,48 @@
   height: 15px;
   transform: rotate(270deg);
 }
+
+@media screen and (min-width: 100px)
+{
+  .Nav-Buttons-Grid {
+    left: 35%;
+  }
+}
+@media screen and (min-width: 360px)
+{
+  .Nav-Buttons-Grid {
+    left: 35%;
+  }
+}
+
+@media screen and (min-width: 768px)
+{
+  .Nav-Buttons-Grid {
+    left: 45%;
+  }
+
+  .Nav-Button {
+    width: 60px;
+    height: 60px;
+  }
+
+  .Nav-Button-Icon-Up {
+    width: 25px;
+    height: 25px;
+  }
+
+  .Nav-Button-Icon-Down {
+    width: 25px;
+    height: 25px;
+  }
+
+  .Nav-Button-Icon-Left {
+    width: 25px;
+    height: 25px;
+  }
+
+  .Nav-Button-Icon-Right {
+    width: 25px;
+    height: 25px;
+  }
+}

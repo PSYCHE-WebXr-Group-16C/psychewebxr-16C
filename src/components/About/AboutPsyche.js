@@ -8,7 +8,10 @@ const ORBIT = require('../../assets/images/orbits-v2.svg');
 const TRAJECTORY = require('../../assets/images/trajectory.svg');
 const IMG_ERROR = "Image Could Not Be Found"
 
-
+/*
+* Utilizes the react-tabs library to create a tabbed interface that
+* provides additional information about the Psyche mission
+*/
 class AboutPsyche extends React.Component {
     render () {
         return (

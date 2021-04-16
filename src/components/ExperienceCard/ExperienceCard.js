@@ -7,7 +7,14 @@ export default class ExperienceCard extends React.Component{
         super(props);
         this.state = {}
     }
+
+    /*
+    * Renders an experience card component
+    */
     render(){
+        /*
+        * Experience card leads to an outside link.
+        */
         if(this.props.link === true){
             return(
                 <Link className="noLinkStyle" to={`/${this.props.linkPath}`}>
@@ -20,6 +27,9 @@ export default class ExperienceCard extends React.Component{
                 </Link>
             )
         }
+        /*
+        * Experience card leads to an internal page.
+        */       
         else {
             return(
                     <div className="Experience-Card-Wrapper">

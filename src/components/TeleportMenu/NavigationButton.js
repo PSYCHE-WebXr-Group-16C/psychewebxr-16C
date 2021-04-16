@@ -12,9 +12,12 @@ class NavigationButton extends React.Component {
         }
     }
 
+    /*
+    * Renders on screen mobile navigation buttons
+    */
     render(){
         return (
-            // Navigon Buttons
+            /* Navigon Buttons */
             <div className="Nav-Buttons-Grid">
                 <div className = "Nav-Container">
                     <button className = "Nav-Button" onTouchStart={ () => {this.props.toggleHold("up")}} onTouchEnd={ () => {this.props.toggleRelease()}} >

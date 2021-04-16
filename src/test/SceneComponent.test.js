@@ -1,9 +1,12 @@
 let movementCalculations = require('../math/MovementCalculations');
 
-var globalRotXPreset = 0; // Default Value
-var globalRotYPreset = 0; // Default Value
+/* Following test cases are created based off the following set of 
+* angles {0, pi/4, pi/2, 3pi/4, pi, 5pi/4, 2pi/2, 7pi/4} and 
+* includes all combinations for the X and Y rotations. Tests include
+* test cases for all methods in the movementControls class.
+*/
 
-// Forward Testing
+/* Forward Movement Testing */
 test('Test: Handle Forward Calculation #1', () => {
     var testValues = movementCalculations.handleUpCalculation(0,0,0,0,0)
     expect(testValues.newX).toBeCloseTo(0, 5); 
@@ -470,7 +473,7 @@ expect(testValues.newY).toBeCloseTo(-0.2121320344, 5);
 expect(testValues.newZ).toBeCloseTo(-0.15, 5); 
 });
 
-//Backward Testing
+/* Backward Movement Test Cases */
 test('Test: Handle Backward Calculation #1', () => {
   var testValues = movementCalculations.handleDownCalculation(0,0,0,0,0)
   expect(testValues.newX).toBeCloseTo(0, 5); 
@@ -937,7 +940,7 @@ expect(testValues.newY).toBeCloseTo(0.2121320344, 5);
 expect(testValues.newZ).toBeCloseTo(0.15, 5); 
 });
 
-//Left Tests
+/* Left Movement Test Cases */
 test('Test: Handle Left Calculation #1', () => {
   var testValues = movementCalculations.handleLeftCalculation(0,0,0,0,0)
   expect(testValues.newX).toBeCloseTo(-0.3, 5); 
@@ -1404,7 +1407,7 @@ expect(testValues.newY).toBeCloseTo(0, 5);
 expect(testValues.newZ).toBeCloseTo(-0.15, 5); 
 });
 
-//Right Tests
+/* Right Movement Test Cases */
 test('Test: Handle Right Calculation #1', () => {
   var testValues = movementCalculations.handleRightCalculation(0,0,0,0,0)
   expect(testValues.newX).toBeCloseTo(0.3, 5); 
