@@ -27,7 +27,10 @@ export default class SceneSelector extends React.Component {
         this.toggleDisc = this.toggleDisclaimer.bind(this);
     }
 
-    /* Determines if users device is a mobile device */
+    /*
+    * Determines if users device is a mobile device and 
+    * sets the state accordingly
+    */
     checkMobileMode(){
         if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
             if(this.state.mobileMode !== true){
@@ -41,6 +44,10 @@ export default class SceneSelector extends React.Component {
         }
     }
 
+    /*
+    * Runs check to determine if the users device is mobile and sets the
+    * disclaimer to be shown.
+    */
     componentDidMount() {
         this.checkMobileMode();
         printDebug("Launching App in mobile mode: " + this.state.mobileMode);
@@ -156,7 +163,10 @@ function HomePageContent(props) {
                 />
             </div>
             {
-                // This ternary presents the disclaimer on the homepage. When the div "DisclaimerButton is clicked, it disappears."
+                /*
+                * This ternary presents the disclaimer on the homepage. 
+                * When the div "DisclaimerButton is clicked, it disappears." 
+                */ 
                 props.disclaimerShown ? 
                 <div className="Disclaimer">
                     <h3><u>Disclaimer</u></h3>

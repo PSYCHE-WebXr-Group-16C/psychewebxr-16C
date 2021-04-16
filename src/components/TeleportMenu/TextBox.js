@@ -10,16 +10,22 @@ class TextBox extends React.Component {
         }
     }
 
-    /* Toggles the state of the collapsible text box between expanded and collapsed*/
+    /*
+    * Toggles the state of the collapsible text box 
+    * between expanded and collapsed
+    */
     handleDisplay(){
         this.setState({isEnabled: !this.state.isEnabled,});
     }
 
     render(){
 
-        // Checks if the text box should render as expanded or collapsed
+        /* Checks if the text box should render as expanded or collapsed */
         var toggleValue = this.state.isEnabled ? "TextExpand":"TextCollapse";
-        // Changes the text of the text box button to reflect its current state
+        /*
+        * Changes the text of the text box button to reflect its 
+        * current state
+        */
         var buttonText = !this.state.isEnabled ? "Expand":"Collapse";
         return(
             <div className = "TextBox">

@@ -35,8 +35,8 @@ class TeleportMenu extends React.Component{
         super(props);
         this.state = {
             isEnabled: false,
-            scene: this.props.scene,
-            text: DEFAULT_CONTROLLER,
+            scene: this.props.scene, // currently selected scene
+            text: DEFAULT_CONTROLLER, // preset message settings
             controls: this.props.controls,
         }
 
@@ -47,10 +47,10 @@ class TeleportMenu extends React.Component{
     * returns a mobile controls component.
      */
     buildMobileControls() {
-        // Check if mobile device
+        /* Check if mobile device */
         var touchEnabled = ('ontouchstart' in document.documentElement);
         
-        // Check if user is in "free roam" mode and using a mobile device
+        /* Check if user is in "free roam" mode and using a mobile device */
         if (this.state.text === DEFAULT_CONTROLLER && touchEnabled === true) {
             return (<NavigationButton toggleHold={this.props.toggleHold} toggleRelease={this.props.toggleRelease} handleUpButton={this.props.handleUpButton} handleDownButton={this.props.handleDownButton} handleLeftButton={this.props.handleLeftButton} handleRightButton={this.props.handleRightButton}></NavigationButton>)
         }
@@ -92,6 +92,10 @@ class TeleportMenu extends React.Component{
                         <img className = "Teleport-Menu-icon" src = {MENUBUTTON} alt= "Menu"></img>
                     </button>
                     {
+                        /*
+                        * Check to decide which scene is selected and creates
+                        * a teleportion menu accordingly
+                        */
                         this.state.scene === "ASTEROID" ?
                         (
                             /* Asteroid Menu */

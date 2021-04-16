@@ -10,7 +10,9 @@ const Liangbin = require('../../assets/images/Liangbin.png');
 
 const IMG_ERROR = "Picture Not Found"
 
-
+/*
+* Creates page with information about all members of the development team.
+*/
 class AboutTeam extends React.Component {
 
     render () {

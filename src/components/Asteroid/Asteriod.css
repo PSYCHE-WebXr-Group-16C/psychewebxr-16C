@@ -24,10 +24,10 @@ html {
 }
 
 .Splash {
-  width: 350px;
-  height: 350px;
+  width: 150px;
+  height: 150px;
   top: 25%;
-  left: 8%;
+  left: 20%;
   position: absolute;
   z-index: 3;
 }
@@ -41,6 +41,45 @@ html {
   rgba(245, 125, 50, 1) 0%,
   rgba(239, 89, 102,1) 50%);
   color: rgba(18, 3, 29, 1);
+}
+
+@media screen and (min-width: 100px)
+{
+  .Splash {
+    width: 150px;
+    height: 150px;
+    top: 25%;
+    left: 20%;
+  }
+}
+@media screen and (min-width: 360px)
+{
+  .Splash {
+    width: 300px;
+    height: 300px;
+    top: 25%;
+    left: 12%;
+  }
+}
+
+@media screen and (min-width: 768px)
+{
+  .Splash {
+    width: 650px;
+    height: 650px;
+    top: 25%;
+    left: 20%;
+  }
+}
+
+@media screen and (min-width: 1200px)
+{
+  .Splash {
+    width: 750px;
+    height: 750px;
+    top: 20%;
+    left: 35%;
+  }
 }
 
 .Visible {

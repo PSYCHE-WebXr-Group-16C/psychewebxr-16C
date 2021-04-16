@@ -45,6 +45,45 @@ html {
   color: rgba(18, 3, 29, 1);
 }
 
+@media screen and (min-width: 100px)
+{
+  .Splash {
+    width: 150px;
+    height: 150px;
+    top: 25%;
+    left: 20%;
+  }
+}
+@media screen and (min-width: 360px)
+{
+  .Splash {
+    width: 300px;
+    height: 300px;
+    top: 25%;
+    left: 12%;
+  }
+}
+
+@media screen and (min-width: 768px)
+{
+  .Splash {
+    width: 650px;
+    height: 650px;
+    top: 25%;
+    left: 20%;
+  }
+}
+
+@media screen and (min-width: 1200px)
+{
+  .Splash {
+    width: 750px;
+    height: 750px;
+    top: 20%;
+    left: 35%;
+  }
+}
+
 .Visible {
   visibility: visible;
   opacity: 1;
