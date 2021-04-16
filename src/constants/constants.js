@@ -25,7 +25,6 @@ export const ASTEROID_3 = { x: -0.879, y: 1.439, z: 5.201, rx: 0, ry: -100, rz: 
 export const ASTEROID_4 = { x: 2.5, y: 1.3, z: 3, rx: 0, ry: 100, rz: 0, controls: false };
 export const ASTEROID_5 = { x: -0.131, y: 1.891, z: -1.251, rx: 0, ry: 1.686, rz: 6.381, controls: false };
 
-
 /* Messages to be shown in text boxes based off teleporation menu selections */
 export const DEFAULT_CONTROLLER = "DEFAULT_CONTROLLER";
 
