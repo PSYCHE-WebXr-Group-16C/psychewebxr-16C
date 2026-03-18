@@ -1,5 +1,3 @@
-import {matrix, subset, index, multiply} from 'mathjs';
-
 // Step size to move user with mobile controls
 var stepSize = 0.3
 
@@ -46,23 +44,17 @@ export function handleLeftCalculation(globalRotX, globalRotY, sX, sY, sZ){
     let x = Math.sin(theta) * Math.sin(fi) * stepSize // Forward X Value
     let y = Math.cos(theta) * stepSize // Forward Y Value
 
-    var t = 3 * Math.PI / 2 // Theta value for Y axis transformation
-    /* Y axis transformation matrix */
-    var matrixTran= matrix([[Math.cos(t), 0, Math.sin(t)], 
-    [0,1,0], [-1 * Math.sin(t), 0, Math.cos(t)]]);
-    var matrixForward = matrix([[x],[y],[z]]);
+    // Rotate the forward vector around the Y axis by 3π/2
+    // to obtain a vector pointing left relative to the camera.
+    var t = 3 * Math.PI / 2;
+    var cosT = Math.cos(t);
+    var sinT = Math.sin(t);
+    var leftX = cosT * x + sinT * z;
+    var leftZ = -sinT * x + cosT * z;
 
-    /* Matrix Transformation */
-    var matrixResult = multiply(matrixTran, matrixForward);
-
-    // Y axis transformation Operation
-    var matx = subset(matrixResult, index(0,0));
-    var maty = subset(matrixResult, index(1,0));
-    var matz = subset(matrixResult, index(2,0));
-
-    var newX = sX + matx; // New X Value
+    var newX = sX + leftX; // New X Value
     var newY = sY; // New Y Value
-    var newZ = sZ + matz; // New Z Value
+    var newZ = sZ + leftZ; // New Z Value
 
     return {newX, newY, newZ}
 }
@@ -75,22 +67,17 @@ export function handleRightCalculation(globalRotX, globalRotY, sX, sY, sZ){
     let x = Math.sin(theta) * Math.sin(fi) * stepSize // Forward X Value
     let y = Math.cos(theta) * stepSize // Forward Y Value
 
-    var t = 3 * Math.PI / 2 // Theta value for Y axis transformation
-    /* Y axis transformation matrix */
-    var matrixTran= matrix([[Math.cos(t), 0, Math.sin(t)], 
-    [0,1,0], [-1 * Math.sin(t), 0, Math.cos(t)]]);
-    var matrixForward = matrix([[x],[y],[z]]);
+    // Same left-vector computation as in handleLeftCalculation.
+    var t = 3 * Math.PI / 2;
+    var cosT = Math.cos(t);
+    var sinT = Math.sin(t);
+    var leftX = cosT * x + sinT * z;
+    var leftZ = -sinT * x + cosT * z;
 
-    /* Y axis transformation Operation */
-    var matrixResult = multiply(matrixTran, matrixForward);
-
-    var matx = subset(matrixResult, index(0,0));
-    var maty = subset(matrixResult, index(1,0));
-    var matz = subset(matrixResult, index(2,0));
-
-    var newX = sX - matx; // New X Value
+    // Moving right is the inverse of moving left.
+    var newX = sX - leftX; // New X Value
     var newY = sY; // New Y Value
-    var newZ = sZ - matz; // New Z Value
+    var newZ = sZ - leftZ; // New Z Value
 
     return {newX, newY, newZ}
 }

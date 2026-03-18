@@ -43,28 +43,28 @@ class AboutPsyche extends React.Component {
                         </TabPanel>
                         <TabPanel>
                             <h2>Trajectory of the Spacecraft:</h2>
-                            <p>The Psyche spacecraft is targeted to launch in summer 2022 and travel to the asteroid using solar-electric (low-thrust) propulsion, arriving in 2026, following a Mars flyby and gravity-assist in 2023. After arrival, the mission plan calls for 21 months spent at the asteroid, mapping it and studying its properties.</p>
+                            <p>The Psyche spacecraft launched on October 13, 2023 on a roughly six-year journey to the asteroid belt. About 2.5 years after launch, it performs a Mars gravity boost (expected around May 2026). As the cruise period ends, the spacecraft’s imagers will begin photographing asteroid Psyche around June 2029, and in August 2029 the spacecraft will begin its first of 26 planned orbits around the metal-rich asteroid, mapping it and studying its properties.</p>
                             <img className="AboutPhoto" src={TRAJECTORY} alt={IMG_ERROR}></img>
                         </TabPanel>
                         <TabPanel>
                             <h2>Orbit of the Spacecraft:</h2>
-                            <p>Once the spacecraft arrives at the asteroid in 2026, plans call for it to spend 21 months at the asteroid, performing science operations from four staging orbits, which become successively closer.</p>
+                            <p>During the prime science phase, the spacecraft will spend about two years in orbit around Psyche, conducting science operations from multiple staging orbits (four planned orbits that become successively closer). This prime mission phase begins in August 2029 and continues through late 2031.</p>
                             <img className="AboutPhoto" src={ORBIT} alt={IMG_ERROR}></img>
                         </TabPanel>
                         <TabPanel>
                             <h2>Mission Timeline:</h2>
                             <ul>
-                                <li>Launch: 2022</li>
-                                <li>Solar electric cruise: 3.5 years</li>
-                                <li>Arrival at (16) Psyche: 2026</li>
-                                <li>Observation Period: 21 months in orbit, mapping and studying Psyche's properties</li>
+                                <li>Launch: Oct 13, 2023</li>
+                                <li>Solar-electric journey: about six years (with a Mars gravity assist)</li>
+                                <li>Arrival at (16) Psyche: late July / August 2029 (first orbits begin)</li>
+                                <li>Observation period: prime science phase ~26 months in orbit, through late 2031</li>
                             </ul>
                             <h2>Mission Events:</h2>
                             <ul>
-                                <li>2022 - Launch of Psyche spacecraft from Kennedy Space Center, Florida</li>
-                                <li>2023 - Mars Flyby of Psyche spacecraft</li>
-                                <li>2026 - Psyche spacecraft arrives in asteroid's orbit</li>
-                                <li>2026-2027 - Psyche spacecraft orbits the Psyche asteroid</li>
+                                <li>Oct 13, 2023 - Launch of Psyche spacecraft from Kennedy Space Center, Florida</li>
+                                <li>May 2026 (expected) - Mars flyby / gravity assist</li>
+                                <li>Late July / Aug 2029 - Spacecraft captured into orbit around (16) Psyche</li>
+                                <li>Aug 2029 - late 2031 - Spacecraft conducts science operations from staging orbits</li>
                             </ul>
                         </TabPanel>
                     </Tabs>

@@ -59,3 +59,43 @@ Liangbin Gao    | https://github.com/Brucebb97
 
 # Main Page Of Application
 ![Main Page](https://raw.githubusercontent.com/PSYCHE-WebXr-Group-16C/psychewebxr/master/public/Application%20Pictures/Main%20Screen.jpg)
+
+## Local Development Notes (2026 Fixes)
+
+### Node / build issues
+
+- This project was built with `react-scripts@3.4.3` and webpack 4, which expect **Node 10–16**.
+- On Node 17+ (including Node 24), running `npm start` or `npm run build` can fail with:
+  - `Error: error:0308010C:digital envelope routines::unsupported`
+- **Fix**:
+  - Use `nvm` and switch to Node 16 in this folder:
+    - `nvm install 16`
+    - `nvm use 16`
+  - Then reinstall and start:
+    - `rm -rf node_modules package-lock.json`
+    - `npm install`
+    - `npm start`
+
+### A-Frame version issue (white screen)
+
+- A recent `npm install` can pull a newer `aframe` (e.g. `1.7.1`) which uses modern JS syntax (`?.`, `??`) that this older Babel/webpack setup does not transpile.
+- Symptom: compile-time error similar to:
+  - `./node_modules/aframe/dist/aframe-master.module.min.js ... Unexpected token ... ?.length ?? NaN`
+- **Fix implemented**:
+  - `package.json` now pins `aframe` to a compatible version:
+    - `"aframe": "1.0.4"`
+  - If you ever see this error again:
+    - Ensure you are on Node 16 (`nvm use 16`)
+    - Run `rm -rf node_modules package-lock.json && npm install`
+
+### Runtime Fraction.js / MovementCalculations.js error (blank page)
+
+- With the previous setup, the app could compile but still show a **blank white screen** with a console error like:
+  - `Fraction.js: Uncaught TypeError: Cannot set properties of undefined (setting 'type')`
+  - Trace pointing into `mathjs` and `src/math/MovementCalculations.js`.
+- Root cause: the original `MovementCalculations` used `mathjs` matrix helpers, which pulled in a newer `mathjs`/`fraction.js` implementation incompatible with this bundler/runtime.
+- **Fix implemented**:
+  - `src/math/MovementCalculations.js` was rewritten to use plain JavaScript `Math` (no `mathjs` import).
+  - Behavior of movement controls is preserved, but the dependency on `mathjs` is removed.
+
+With these changes, the app runs correctly on modern macOS with Node 16, and the home page and experience images no longer disappear after visiting the Asteroid/Spacecraft scenes.
